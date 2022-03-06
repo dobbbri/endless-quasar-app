@@ -46,18 +46,22 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
       </page-header>
 
       <page-body>
-        <div class="box">
+        <box>
           <text-field
             v-model="store.paymentMethod.name"
             label="Nome*"
             placeholder="Informe o nome do método de pagamento"
             :rules="[rules.isRequired()]"
+            autofocus
           />
-        </div>
+        </box>
 
-        <div class="box">
-          <check-box v-model="store.paymentMethod.disabled" label="Ocultar este método de pagamento" />
-        </div>
+        <box>
+          <check-box
+            v-model="store.paymentMethod.disabled"
+            label="Ocultar este método de pagamento"
+          />
+        </box>
 
         <page-footer>
           <div class="row q-ma-md">

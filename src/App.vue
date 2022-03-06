@@ -2,7 +2,7 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useStore } from 'src/stores'
 
-const auth = getAuth()
+  const auth = getAuth()
 const store = useStore()
 
 onAuthStateChanged(auth, (user) => {

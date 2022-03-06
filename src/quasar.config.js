@@ -1,5 +1,3 @@
-import { ionClose } from '@quasar/extras/ionicons-v6'
-
 const config = {
   dark: 'false',
   notify: {
@@ -8,7 +6,7 @@ const config = {
     iconSize: 'md',
     textColor: 'white',
     progress: true,
-    actions: [{ icon: ionClose, color: 'white', rounded: true, dense: true }]
+    actions: [{ color: 'white', rounded: true, dense: true }]
   }
 }
 

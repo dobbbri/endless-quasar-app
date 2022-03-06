@@ -1,5 +1,4 @@
 <script setup>
-import { ionPeopleOutline } from '@quasar/extras/ionicons-v6'
 import { useGetCustomers } from 'src/composables/customer'
 import { ADD, EDIT } from 'src/constants'
 import { useStore } from 'src/stores'
@@ -42,42 +41,41 @@ const showUpdatePage = async (doc) => {
     </page-header>
 
     <page-body>
-      <q-inner-loading :showing="loading" color="primary" label="obtendo registros..." label-class="text-grey-6" />
+      <q-inner-loading
+        :showing="loading"
+        color="primary"
+        label="obtendo registros..."
+        label-class="text-grey-6"
+      />
 
-      <transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-        <div v-if="customers" class="box">
-          <search-field v-model="searchQuery" />
-          <list separator>
-            <item v-for="(customer, index) in customers" :key="index" clickable @click="showUpdatePage(customer)">
-              <item-section avatar>
-                <icon :name="ionPeopleOutline" size="md" />
-              </item-section>
+      <div v-if="customers" class="box">
+        <search-field v-model="searchQuery" />
+        <list separator>
+          <item
+            v-for="(customer, index) in customers"
+            :key="index"
+            clickable
+            @click="showUpdatePage(customer)"
+          >
+            <item-section>
+              <item-section-label class="row text-medium">{{ customer.name }}</item-section-label>
 
-              <item-section>
-                <item-section-label class="row">
-                  <span class="text-medium">{{ customer.name }}</span>
+              <item-section-label
+                v-if="customer.cellPhone || customer.phone"
+                class="row"
+              >{{ customer.cellPhone }} {{ customer.phone }}</item-section-label>
+            </item-section>
 
-                  <span v-if="customer.cellPhone || customer.phone">{{ customer.cellPhone }} {{ customer.phone }}</span>
+            <item-section
+              v-if="customer.documentNumber"
+            >{{ customer.documentType }}: {{ customer.documentNumber }}</item-section>
 
-                  <span v-if="customer.documentNumber">{{ customer.documentType }}: {{ customer.documentNumber }}</span>
-                </item-section-label>
-              </item-section>
-
-              <item-section avatar>
-                <btn-forward />
-              </item-section>
-            </item>
-          </list>
-        </div>
-      </transition>
-
-      <!-- <not-found -->
-      <!--   v-if="!customers && !loading" -->
-      <!--   title="Cadastro de Clientes" -->
-      <!--   message="nenhuma cliente cadastrada" -->
-      <!--   btn-text="ADICIONAR CATEGORIA" -->
-      <!--   @add="showAddPage" -->
-      <!-- /> -->
+            <item-section avatar>
+              <btn-forward />
+            </item-section>
+          </item>
+        </list>
+      </div>
     </page-body>
   </page>
 </template>

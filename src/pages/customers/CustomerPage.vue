@@ -46,13 +46,13 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
       </page-header>
 
       <page-body>
-        <div class="box">
-          <!-- // -->
+        <box>
           <text-field
             v-model="store.customer.name"
             label="Nome*"
             placeholder="Informe o nome do cliente"
             :rules="[rules.isRequired()]"
+            autofocus
           />
 
           <phone-field
@@ -66,7 +66,9 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             label="Telefone"
             placeholder="Informe o número do telefone do cliente"
           />
+        </box>
 
+        <box>
           <select-text
             v-model="store.customer.documentType"
             label="Tipo de documento"
@@ -80,10 +82,21 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             placeholder="Informe o número do documento do cliente"
           />
 
-          <text-field v-model.trim="store.customer.email" type="email" label="Email" placeholder="Email do cliente" />
+          <text-field
+            v-model.trim="store.customer.email"
+            type="email"
+            label="Email"
+            placeholder="Email do cliente"
+          />
+        </box>
 
-          <text-area v-model="store.customer.comments" label="Observações" placeholder="Observações" />
-        </div>
+        <box>
+          <text-area
+            v-model="store.customer.comments"
+            label="Observações"
+            placeholder="Observações"
+          />
+        </box>
 
         <page-footer>
           <div class="row q-ma-md">

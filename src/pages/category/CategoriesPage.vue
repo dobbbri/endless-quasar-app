@@ -43,29 +43,27 @@ const showUpdatePage = async (doc) => {
         label-class="text-grey-6"
       />
 
-      <transition appear enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-        <div v-if="categories" class="box">
-          <search-field v-model="searchQuery" />
-          <list separator>
-            <item
-              v-for="(category, index) in categories"
-              :key="index"
-              @click="showUpdatePage(category)"
-            >
-              <item-section>
-                <item-section-label>
-                  {{ category.name }}
-                  <chip v-if="category.disabled" color="negative" style="margin: 0">oculta</chip>
-                </item-section-label>
-              </item-section>
+      <div v-if="categories" class="box">
+        <search-field v-model="searchQuery" />
+        <list separator>
+          <item
+            v-for="(category, index) in categories"
+            :key="index"
+            @click="showUpdatePage(category)"
+          >
+            <item-section>
+              <item-section-label>
+                {{ category.name }}
+                <chip v-if="category.disabled" color="negative" style="margin: 0">oculta</chip>
+              </item-section-label>
+            </item-section>
 
-              <item-section avatar>
-                <btn-forward />
-              </item-section>
-            </item>
-          </list>
-        </div>
-      </transition>
+            <item-section avatar>
+              <btn-forward />
+            </item-section>
+          </item>
+        </list>
+      </div>
 
       <!-- <not-found -->
       <!--   v-if="!categories && !loading" -->
