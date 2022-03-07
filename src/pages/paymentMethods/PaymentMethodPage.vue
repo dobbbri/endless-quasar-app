@@ -1,9 +1,9 @@
 <script setup>
-import { useCategory } from 'src/composables/category'
+import { usePaymentMethod } from 'src/composables/paymentMethod'
 import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores'
+import { useStore } from 'src/stores/store'
 
-const { rules, error, loading, addCategory, editCategory, deleteCategory } = useCategory()
+const { rules, error, loading, addPaymentMethod, editPaymentMethod, deletePaymentMethod } = usePaymentMethod()
 
 const store = useStore()
 const route = useRoute()
@@ -11,20 +11,20 @@ const router = useRouter()
 
 const onSubmit = async () => {
   if (route.params.action === ADD) {
-    await addCategory(store.category)
+    await addPaymentMethod(store.paymentMethod)
   } else if (route.params.action === EDIT) {
-    let { id, userId, ...category } = store.category
-    await editCategory(category, store.category.id)
+    let { id, userId, ...paymentMethod } = store.paymentMethod
+    await editPaymentMethod(paymentMethod, store.paymentMethod.id)
   }
   if (!error.value) router.go(-1)
 }
 
 const onDelete = async () => {
-  await deleteCategory(store.category.id)
+  await deletePaymentMethod(store.paymentMethod.id)
   if (!error.value) router.go(-1)
 }
 
-const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
+const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
 </script>
 
 <template>
@@ -34,11 +34,11 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
         <template #buttons-left>
           <btn-back />
         </template>
-        <template #title>{{ action }} Categoria</template>
+        <template #title>{{ action }} Método de pagamento</template>
         <template #buttons-right>
           <btn-delete
             v-if="route.params.action === EDIT"
-            title="Excluir categoria"
+            title="Excluir método de pagamento"
             :loading="loading"
             @delete="onDelete"
           />
@@ -48,16 +48,19 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
       <page-body>
         <box>
           <text-field
-            v-model="store.category.name"
+            v-model="store.paymentMethod.name"
             label="Nome*"
-            placeholder="Informe o nome da categoria"
+            placeholder="Informe o nome do método de pagamento"
             :rules="[rules.isRequired()]"
             autofocus
           />
         </box>
 
         <box>
-          <check-box v-model="store.category.disabled" label="Ocultar esta categoria" />
+          <check-box
+            v-model="store.paymentMethod.disabled"
+            label="Ocultar este método de pagamento"
+          />
         </box>
 
         <page-footer>

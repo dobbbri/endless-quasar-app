@@ -2,12 +2,14 @@ import MainLayout from 'src/layouts/MainLayout.vue'
 import SignInPage from 'src/pages/auth/SignInPage.vue'
 import SignUpPage from 'src/pages/auth/SignUpPage.vue'
 import Home from 'src/pages/Home.vue'
-import CategoriesPage from 'src/pages/category/CategoriesPage.vue'
-import CategoryPage from 'src/pages/category/CategoryPage.vue'
-import PaymentMethodsPage from 'src/pages/paymentMethod/PaymentMethodsPage.vue'
-import PaymentMethodPage from 'src/pages/paymentMethod/PaymentMethodPage.vue'
+import CategoriesPage from 'src/pages/categories/CategoriesPage.vue'
+import CategoryPage from 'src/pages/categories/CategoryPage.vue'
+import PaymentMethodsPage from 'src/pages/paymentMethods/PaymentMethodsPage.vue'
+import PaymentMethodPage from 'src/pages/paymentMethods/PaymentMethodPage.vue'
 import CustomersPage from 'src/pages/customers/CustomersPage.vue'
 import CustomerPage from 'src/pages/customers/CustomerPage.vue'
+import ProductsPage from 'src/pages/products/ProductsPage.vue'
+import ProductPage from 'src/pages/products/ProductPage.vue'
 
 const routes = [
   {
@@ -46,7 +48,16 @@ const routes = [
         children: [
           { path: '/customers/customer', name: 'customer', meta: { requiresAuth: true }, component: CustomerPage }
         ]
+      },
+      {
+        path: '/products',
+        meta: { requiresAuth: true },
+        component: ProductsPage,
+        children: [
+          { path: '/products/product', name: 'product', meta: { requiresAuth: true }, component: ProductPage }
+        ]
       }
+
     ]
   },
 

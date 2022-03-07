@@ -9,7 +9,7 @@ import {
   ionSettingsOutline,
   ionPower
 } from '@quasar/extras/ionicons-v6'
-import { useStore } from 'src/stores'
+import { useStore } from 'src/stores/store'
 
 const store = useStore()
 
@@ -34,7 +34,7 @@ const menuItems = ref([
   <div>
     <q-drawer v-model="store.isSidebarOpen" show-if-above bordered>
       <list class="q-py-sm" style="border-bottom: 1px solid">
-        <item class="row">
+        <item class="row" :clickable="false">
           <item-section avatar class="q-pl-md">
             <q-avatar size="lg" class="bg-white">
               <img src="/src/assets/images/logo.svg" />
@@ -45,7 +45,7 @@ const menuItems = ref([
             <btn-forward to="/categories" />
           </item-section>
         </item>
-        <item>
+        <item :clickable="false">
           <item-section class="q-pl-md">
             <item-section-label class="text-weight-medium" to="/categories">Sergio Dobri</item-section-label>
             <item-section-label caption>sergiodobri@gmail.com</item-section-label>

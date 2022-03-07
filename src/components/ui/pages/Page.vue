@@ -1,7 +1,7 @@
 <script setup>
 import opts from 'src/components/ui/options'
 import useGoBack from 'src/composables/useGoBack'
-import { useStore } from 'src/stores'
+import { useStore } from 'src/stores/store'
 
 const store = useStore()
 

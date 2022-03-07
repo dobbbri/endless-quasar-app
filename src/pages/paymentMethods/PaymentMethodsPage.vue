@@ -1,7 +1,7 @@
 <script setup>
 import { useGetPaymentMethods } from 'src/composables/paymentMethod'
 import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores'
+import { useStore } from 'src/stores/store'
 
 const { searchQuery, loading, paymentMethods } = useGetPaymentMethods()
 
@@ -49,7 +49,6 @@ const showUpdatePage = async (doc) => {
           <item
             v-for="(paymentMethod, index) in paymentMethods"
             :key="index"
-            clickable
             @click="showUpdatePage(paymentMethod)"
           >
             <item-section>

@@ -62,5 +62,5 @@ export default function useUpdateProduct() {
       .finally(() => (loading.value = false))
   }
 
-  return { error, loading, rules, addProduct, updateProduct, deleteProduct }
+  return { error, loading, rules, addProduct, editProduct, deleteProduct }
 }

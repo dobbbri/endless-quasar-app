@@ -1,7 +1,7 @@
 <script setup>
 import { useGetCustomers } from 'src/composables/customer'
 import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores'
+import { useStore } from 'src/stores/store'
 
 const { searchQuery, loading, customers } = useGetCustomers()
 
@@ -54,20 +54,20 @@ const showUpdatePage = async (doc) => {
           <item
             v-for="(customer, index) in customers"
             :key="index"
-            clickable
             @click="showUpdatePage(customer)"
           >
-            <item-section>
-              <item-section-label class="row text-medium">{{ customer.name }}</item-section-label>
+            <item-section class="column">
+              <item-section-label class="text-medium">{{ customer.name }}</item-section-label>
 
               <item-section-label
                 v-if="customer.cellPhone || customer.phone"
-                class="row"
+                class="column"
               >{{ customer.cellPhone }} {{ customer.phone }}</item-section-label>
             </item-section>
 
             <item-section
               v-if="customer.documentNumber"
+              class="text-right"
             >{{ customer.documentType }}: {{ customer.documentNumber }}</item-section>
 
             <item-section avatar>

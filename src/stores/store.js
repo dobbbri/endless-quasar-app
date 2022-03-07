@@ -1,5 +1,5 @@
 export const useStore = defineStore({
-  id: 'storeId',
+  id: 'store',
 
   state: () => ({
     service: null,
@@ -7,6 +7,7 @@ export const useStore = defineStore({
     customer: null,
     paymentMethod: null,
     category: null,
+    categories: null,
     user: null,
     //
     itemType: ['Produto', 'Servoço'],
@@ -33,6 +34,9 @@ export const useStore = defineStore({
     },
     setPaymentMethod(value) {
       this.paymentMethod = value
+    },
+    setCategories(values) {
+      this.categories = values
     },
     setCategory(value) {
       this.category = value

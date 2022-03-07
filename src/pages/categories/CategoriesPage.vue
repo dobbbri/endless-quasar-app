@@ -1,7 +1,7 @@
 <script setup>
 import { useGetCategories } from 'src/composables/category'
 import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores'
+import { useStore } from 'src/stores/store'
 
 const { searchQuery, loading, categories } = useGetCategories()
 

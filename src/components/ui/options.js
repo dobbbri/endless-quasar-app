@@ -37,7 +37,7 @@ const options = {
 
   lists: {
     list: { dense: true, class: 'q-my-sm' },
-    item: { }
+    item: { clickable: true, ripple: true }
   },
 
   pages: {
