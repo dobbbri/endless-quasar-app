@@ -5,7 +5,8 @@ import { Quasar, Notify, Dialog } from 'quasar'
 import quasarConfig from 'src/quasar.config'
 
 // Import icon libraries
-import quasarIconSet from 'quasar/icon-set/svg-material-icons'
+import materialIconSet from 'quasar/icon-set/svg-material-icons'
+// import ionIconSet from 'quasar/icon-set/svg-ionicons-v6'
 import '@quasar/extras/material-icons/material-icons.css'
 
 import '@quasar/extras/animate/slideInRight.css'
@@ -21,6 +22,6 @@ import 'src/assets/scss/app.scss'
 const myApp = createApp(App)
 myApp.use(router)
 myApp.use(createPinia())
-myApp.use(Quasar, { plugins: { Notify, Dialog }, iconSet: quasarIconSet, config: quasarConfig })
+myApp.use(Quasar, { plugins: { Notify, Dialog }, iconSet: { materialIconSet }, config: quasarConfig })
 myApp.directive('cleave', vCleave)
 myApp.mount('#app')
