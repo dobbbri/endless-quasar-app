@@ -1,5 +1,5 @@
 <script setup>
-import { useGetCategories } from 'src/composables/category'
+import { useGetCategories } from '@/composables/category'
 
 const { categories } = useGetCategories()
 const categoryStore = inject('categoryStore')

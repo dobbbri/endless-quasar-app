@@ -1,6 +1,6 @@
-import { auth } from 'src/firebase/config'
-import { useGetCollection } from 'src/composables'
-import { useNameSearch } from 'src/composables'
+import { auth } from '@/firebase/config'
+import { useGetCollection } from '@/composables'
+import { useNameSearch } from '@/composables'
 
 export default function useGetCustomers() {
   const { documents } = useGetCollection('customers', ['userId', '==', auth.currentUser.uid], ['name'])

@@ -1,7 +1,8 @@
 <script setup>
-import { useProduct } from 'src/composables/product'
-import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores/store'
+import { useProduct } from '@/composables/product'
+import { ADD, EDIT } from '@/constants'
+import { useStore } from '@/stores/store'
+// import { categoryStore } from '@/stores/categoryStore'
 
 const { rules, error, loading, addProduct, editProduct, deleteProduct } = useProduct()
 
@@ -49,36 +50,36 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
 
       <page-body>
         <box>
-          <div class="row q-gutter-md">
-            <div class="col-4">
-              <!-- <file-picker -->
-              <!--   label="Imagem" -->
-              <!--   v-model:file="store.product.file" -->
-              <!--   :url="store.product.image.url" -->
-              <!-- /> -->
-            </div>
-
-            <div class="col">
-              <text-field
-                v-model="store.product.barCode"
-                label="Código de barra"
-                placeholder="Informe o código de barra do produto"
-                v-focus
-              />
-
-              <!-- <toggle-field -->
-              <!--   v-model="store.product.disableStockContol" -->
-              <!--   :label="store.product.disableStockContol ? 'Não contolar o estoque' : 'Contolar o estoque'" -->
-              <!-- /> -->
-
-              <integer-field
-                v-if="!store.product.disableStockContol"
-                v-model="store.product.quantityInStock"
-                label="Quantidade"
-                placeholder="Informe o quatidade do produto"
-              />
-            </div>
-          </div>
+          <!--           <div class="row q-gutter-md"> -->
+          <!--             <div class="col-4"> -->
+          <!--               <file-picker -->
+          <!--                 label="Imagem" -->
+          <!--                 v-model:file="store.product.file" -->
+          <!--                 :url="store.product.image.url" -->
+          <!--               /> -->
+          <!--             </div> -->
+          <!--  -->
+          <!--             <div class="col"> -->
+          <!--               <text-field -->
+          <!--                 v-model="store.product.barCode" -->
+          <!--                 label="Código de barra" -->
+          <!--                 placeholder="Informe o código de barra do produto" -->
+          <!--                 v-focus -->
+          <!--               /> -->
+          <!--  -->
+          <!--               <toggle-field -->
+          <!--                 v-model="store.product.disableStockContol" -->
+          <!--                 :label="store.product.disableStockContol ? 'Não contolar o estoque' : 'Contolar o estoque'" -->
+          <!--               /> -->
+          <!--  -->
+          <!--                 <integer-field -->
+          <!--                   v-if="!store.product.disableStockContol" -->
+          <!--                   v-model="store.product.quantityInStock" -->
+          <!--                   label="Quantidade" -->
+          <!--                   placeholder="Informe o quatidade do produto" -->
+          <!--                 /> -->
+          <!--             </div> -->
+          <!--           </div> -->
 
           <text-field
             v-model="store.product.name"
@@ -103,7 +104,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <select-field
             v-model="store.product.categoryId"
             label="Categoria*"
-            :options="store.state.categories"
+            :options="store.categories"
             placeholder="Selecione a categoria do produto"
             :rules="[rules.isRequired()]"
           />

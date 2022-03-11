@@ -1,4 +1,4 @@
-import router from 'src/router'
+import router from '@/router'
 
 export default function useGoBack() {
   let pathArray = router.currentRoute.value.path.split('/')

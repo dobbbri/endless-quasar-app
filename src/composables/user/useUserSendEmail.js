@@ -1,5 +1,5 @@
 import { getAuth, sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth'
-import { useNotification } from 'src/composables'
+import { useNotification } from '@/composables'
 
 export default function useUserSendEmail() {
   const sendError = ref(null)

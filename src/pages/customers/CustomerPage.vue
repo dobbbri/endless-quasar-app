@@ -1,7 +1,7 @@
 <script setup>
-import { useCustomer } from 'src/composables/customer'
-import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores/store'
+import { useCustomer } from '@/composables/customer'
+import { ADD, EDIT } from '@/constants'
+import { useStore } from '@/stores/store'
 
 const { rules, error, loading, addCustomer, editCustomer, deleteCustomer } = useCustomer()
 

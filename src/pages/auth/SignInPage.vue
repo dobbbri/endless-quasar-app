@@ -1,6 +1,6 @@
 <script setup>
 import { getAuth } from 'firebase/auth'
-import { useUser, useUserSendEmail } from 'src/composables/user'
+import { useUser, useUserSendEmail } from '@/composables/user'
 
 const router = useRouter()
 const { rules, error, loading, userSignIn, userSignOut } = useUser()

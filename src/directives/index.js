@@ -1,3 +1,3 @@
-import vCleave from 'src/directives/vCleave'
+import vCleave from '@/directives/vCleave'
 
 export { vCleave }

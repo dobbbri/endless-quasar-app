@@ -5,7 +5,7 @@ import {
   getAuth,
   updateProfile
 } from 'firebase/auth'
-import { useValidation, useNotification } from 'src/composables'
+import { useValidation, useNotification } from '@/composables'
 
 export default function useUser() {
   const error = ref(false)

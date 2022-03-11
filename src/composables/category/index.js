@@ -1,4 +1,4 @@
-import useCategory from 'src/composables/category/useCategory'
-import useGetCategories from 'src/composables/category/useGetCategories'
+import useCategory from '@/composables/category/useCategory'
+import useGetCategories from '@/composables/category/useGetCategories'
 
 export { useCategory, useGetCategories }

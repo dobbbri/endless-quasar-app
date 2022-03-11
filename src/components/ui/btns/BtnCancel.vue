@@ -1,6 +1,6 @@
 <script setup>
-import opts from 'src/components/ui/options'
-import useGoBack from 'src/composables/useGoBack'
+import opts from '@/components/ui/options'
+import useGoBack from '@/composables/useGoBack'
 </script>
 
 <template>

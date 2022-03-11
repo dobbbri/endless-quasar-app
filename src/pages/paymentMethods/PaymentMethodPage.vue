@@ -1,7 +1,7 @@
 <script setup>
-import { usePaymentMethod } from 'src/composables/paymentMethod'
-import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores/store'
+import { usePaymentMethod } from '@/composables/paymentMethod'
+import { ADD, EDIT } from '@/constants'
+import { useStore } from '@/stores/store'
 
 const { rules, error, loading, addPaymentMethod, editPaymentMethod, deletePaymentMethod } = usePaymentMethod()
 

@@ -1,7 +1,7 @@
 <script setup>
-import { useGetPaymentMethods } from 'src/composables/paymentMethod'
-import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores/store'
+import { useGetPaymentMethods } from '@/composables/paymentMethod'
+import { ADD, EDIT } from '@/constants'
+import { useStore } from '@/stores/store'
 
 const { searchQuery, loading, paymentMethods } = useGetPaymentMethods()
 

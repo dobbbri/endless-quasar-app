@@ -1,6 +1,6 @@
 import { collection, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore'
-import { db, auth } from 'src/firebase/config'
-import { useValidation, useNotification } from 'src/composables'
+import { db, auth } from '@/firebase/config'
+import { useValidation, useNotification } from '@/composables'
 
 export default function useCustomer() {
   const error = ref(false)

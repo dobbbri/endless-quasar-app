@@ -1,5 +1,5 @@
 <script setup>
-import { useUser, useUserSendEmail } from 'src/composables/user'
+import { useUser, useUserSendEmail } from '@/composables/user'
 
 const router = useRouter()
 const { rules, error, loading, userSignUp, editUserProfile } = useUser()

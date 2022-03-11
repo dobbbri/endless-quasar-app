@@ -4,10 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ENDLESS</title>
+    <title> endless </title>
   </head>
   <body>
+    <div id="loader">loading...</div>
     <div id="app"></div>
+    <script>
+      document.onreadystatechange = function () {
+        if (document.readyState !== 'complete') {
+          document.querySelector('#app').style.visibility = 'hidden'
+          document.querySelector('#loader').style.visibility = 'visible'
+        } else {
+          document.querySelector('#loader').style.display = 'none'
+          document.querySelector('#app').style.visibility = 'visible'
+        }
+      }
+    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

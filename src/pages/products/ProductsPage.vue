@@ -1,14 +1,16 @@
 <script setup>
-import { useGetProducts } from 'src/composables/product'
-import { useGetCategories } from 'src/composables/category'
-import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores/store'
-
-const { searchQuery, loading, products } = useGetProducts()
-const { categories } = useGetCategories()
+import { useGetCategories } from '@/composables/category'
+import { useGetProducts } from '@/composables/product'
+import { ADD, EDIT } from '@/constants'
+import { useStore } from '@/stores/store'
+// import { categoryStore } from '@/stores/categoryStore'
 
 const store = useStore()
-store.setCategories(categories)
+
+const { documents } = useGetCategories(true)
+store.setCategories(documents)
+
+const { searchQuery, loading, products } = useGetProducts()
 
 const router = useRouter()
 

@@ -1,7 +1,7 @@
 import { uid } from 'quasar'
-import { auth, storage } from 'src/firebase/config'
+import { auth, storage } from '@/firebase/config'
 import { uploadBytes, getDownloadURL, deleteObject, ref as firebaseRef } from 'firebase/storage'
-import { useNotification } from 'src/composables'
+import { useNotification } from '@/composables'
 
 export default function useImageUpload() {
   const { notify } = useNotification()

@@ -1,11 +1,12 @@
-import { auth } from 'src/firebase/config'
-import { useGetCollection } from 'src/composables'
-import { useNameSearch } from 'src/composables'
+import { auth } from '@/firebase/config'
+import { useGetCollection } from '@/composables'
+import { useNameSearch } from '@/composables'
 
-export default function useGetCategories() {
-  const { loading, documents } = useGetCollection('categories', ['userId', '==', auth.currentUser.uid], ['name'])
+export default function useGetCategories(isASelect = false) {
+  const { loading, documents } = useGetCollection('categories', ['userId', '==', auth.currentUser.uid], ['name'], isASelect)
+
+  if (isASelect) return { documents }
 
   const { searchQuery, matchingSearchQuery: categories } = useNameSearch(documents)
-
   return { searchQuery, loading, categories }
 }

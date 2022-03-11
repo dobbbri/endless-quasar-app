@@ -1,4 +1,4 @@
-import useGetProducts from 'src/composables/product/useGetProducts'
-import useProduct from 'src/composables/product/useProduct'
+import useGetProducts from '@/composables/product/useGetProducts'
+import useProduct from '@/composables/product/useProduct'
 
 export { useProduct, useGetProducts }

@@ -1,5 +1,5 @@
 <script setup>
-import { useGetProducts } from 'src/composables/product'
+import { useGetProducts } from '@/composables/product'
 
 const { searchQuery, products } = useGetProducts()
 const categoryStore = inject('categoryStore')

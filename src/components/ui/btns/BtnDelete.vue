@@ -1,5 +1,5 @@
 <script setup>
-import opts from 'src/components/ui/options'
+import opts from '@/components/ui/options'
 
 const props = defineProps({
   title: String,

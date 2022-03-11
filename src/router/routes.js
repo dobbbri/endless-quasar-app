@@ -1,15 +1,16 @@
-import MainLayout from 'src/layouts/MainLayout.vue'
-import SignInPage from 'src/pages/auth/SignInPage.vue'
-import SignUpPage from 'src/pages/auth/SignUpPage.vue'
-import Home from 'src/pages/Home.vue'
-import CategoriesPage from 'src/pages/categories/CategoriesPage.vue'
-import CategoryPage from 'src/pages/categories/CategoryPage.vue'
-import PaymentMethodsPage from 'src/pages/paymentMethods/PaymentMethodsPage.vue'
-import PaymentMethodPage from 'src/pages/paymentMethods/PaymentMethodPage.vue'
-import CustomersPage from 'src/pages/customers/CustomersPage.vue'
-import CustomerPage from 'src/pages/customers/CustomerPage.vue'
-import ProductsPage from 'src/pages/products/ProductsPage.vue'
-import ProductPage from 'src/pages/products/ProductPage.vue'
+import MainLayout from '@/layouts/MainLayout.vue'
+import SignInPage from '@/pages/auth/SignInPage.vue'
+import SignUpPage from '@/pages/auth/SignUpPage.vue'
+import Home from '@/pages/Home.vue'
+import SalePage from '@/pages/sale/SalePage.vue'
+import CategoriesPage from '@/pages/categories/CategoriesPage.vue'
+import CategoryPage from '@/pages/categories/CategoryPage.vue'
+import PaymentMethodsPage from '@/pages/paymentMethods/PaymentMethodsPage.vue'
+import PaymentMethodPage from '@/pages/paymentMethods/PaymentMethodPage.vue'
+import CustomersPage from '@/pages/customers/CustomersPage.vue'
+import CustomerPage from '@/pages/customers/CustomerPage.vue'
+import ProductsPage from '@/pages/products/ProductsPage.vue'
+import ProductPage from '@/pages/products/ProductPage.vue'
 
 const routes = [
   {
@@ -19,7 +20,8 @@ const routes = [
       { path: '', redirect: '/signin' },
       { path: '/signin', component: SignInPage },
       { path: '/signup', component: SignUpPage },
-      { path: '/home', component: Home },
+      { path: '/home', meta: { requiresAuth: true }, component: Home },
+      { path: '/sale', meta: { requiresAuth: true }, component: SalePage },
       {
         path: '/categories',
         meta: { requiresAuth: true },
@@ -64,7 +66,7 @@ const routes = [
   // Always leave this as last one, but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('src/pages/Error404.vue')
+    component: () => import('@/pages/Error404.vue')
   }
 ]
 

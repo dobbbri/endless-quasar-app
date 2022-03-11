@@ -7,7 +7,7 @@ export const useStore = defineStore({
     customer: null,
     paymentMethod: null,
     category: null,
-    categories: null,
+    categories: [],
     user: null,
     //
     itemType: ['Produto', 'Servoço'],

@@ -1,5 +1,5 @@
 {
-  "name": "ENDLESS",
+  "name": "endless",
   "version": "0.0.3",
   "scripts": {
     "dev": "vite",

@@ -1,7 +1,7 @@
 <script setup>
-import { useGetCustomers } from 'src/composables/customer'
-import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores/store'
+import { useGetCustomers } from '@/composables/customer'
+import { ADD, EDIT } from '@/constants'
+import { useStore } from '@/stores/store'
 
 const { searchQuery, loading, customers } = useGetCustomers()
 

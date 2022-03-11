@@ -1,7 +1,7 @@
 <script setup>
-import { useCategory } from 'src/composables/category'
-import { ADD, EDIT } from 'src/constants'
-import { useStore } from 'src/stores/store'
+import { useCategory } from '@/composables/category'
+import { ADD, EDIT } from '@/constants'
+import { useStore } from '@/stores/store'
 
 const { rules, error, loading, addCategory, editCategory, deleteCategory } = useCategory()
 
