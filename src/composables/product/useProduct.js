@@ -1,13 +1,15 @@
 import { collection, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore'
-import { db, auth } from '@/firebase/config'
+import { getAuth } from 'firebase/auth'
+import { db } from '@/firebase/config'
 import { useValidation, useNotification, useStorage } from '@/composables'
 
 export default function useUpdateProduct() {
+  const auth = getAuth()
   const error = ref(false)
   const loading = ref(false)
   const { rules } = useValidation()
   const { notify } = useNotification()
-  const { uploadImage, image, uploadError } = useStorage()
+  const { uploadImage, image, uploadError } = useStorage(auth.currentUser)
 
   const addProduct = async (product, file) => {
     loading.value = true

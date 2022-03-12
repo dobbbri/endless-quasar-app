@@ -1,11 +1,11 @@
 <script setup>
 import { useCategory } from '@/composables/category'
-import { ADD, EDIT } from '@/constants'
-import { useStore } from '@/stores/store'
 
 const { rules, error, loading, addCategory, editCategory, deleteCategory } = useCategory()
 
-const store = useStore()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
+
 const route = useRoute()
 const router = useRouter()
 

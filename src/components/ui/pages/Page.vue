@@ -1,9 +1,8 @@
 <script setup>
 import opts from '@/components/ui/options'
 import useGoBack from '@/composables/useGoBack'
-import { useStore } from '@/stores/store'
 
-const store = useStore()
+const store = inject('store')
 
 const emit = defineEmits(['pageActivated', 'pageDeactivated'])
 

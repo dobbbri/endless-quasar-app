@@ -1,8 +1,10 @@
 import { collection, doc, addDoc, updateDoc, deleteDoc } from 'firebase/firestore'
-import { db, auth } from '@/firebase/config'
+import { getAuth } from 'firebase/auth'
+import { db } from '@/firebase/config'
 import { useValidation, useNotification } from '@/composables'
 
 export default function useCustomer() {
+  const auth = getAuth()
   const error = ref(false)
   const loading = ref(false)
   const { rules } = useValidation()

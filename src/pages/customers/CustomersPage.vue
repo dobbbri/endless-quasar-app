@@ -1,11 +1,11 @@
 <script setup>
 import { useGetCustomers } from '@/composables/customer'
-import { ADD, EDIT } from '@/constants'
-import { useStore } from '@/stores/store'
 
 const { searchQuery, loading, customers } = useGetCustomers()
 
-const store = useStore()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
+
 const router = useRouter()
 
 const showAddPage = () => {

@@ -1,11 +1,11 @@
 <script setup>
 import { useGetCategories } from '@/composables/category'
-import { ADD, EDIT } from '@/constants'
-import { useStore } from '@/stores/store'
 
 const { searchQuery, loading, categories } = useGetCategories()
 
-const store = useStore()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
+
 const router = useRouter()
 
 const showAddPage = () => {

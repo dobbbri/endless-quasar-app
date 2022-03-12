@@ -1,11 +1,11 @@
 <script setup>
 import { useGetPaymentMethods } from '@/composables/paymentMethod'
-import { ADD, EDIT } from '@/constants'
-import { useStore } from '@/stores/store'
 
 const { searchQuery, loading, paymentMethods } = useGetPaymentMethods()
 
-const store = useStore()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
+
 const router = useRouter()
 
 const showAddPage = () => {

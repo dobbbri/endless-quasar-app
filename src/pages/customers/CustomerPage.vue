@@ -1,11 +1,11 @@
 <script setup>
 import { useCustomer } from '@/composables/customer'
-import { ADD, EDIT } from '@/constants'
-import { useStore } from '@/stores/store'
 
 const { rules, error, loading, addCustomer, editCustomer, deleteCustomer } = useCustomer()
 
-const store = useStore()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
+
 const route = useRoute()
 const router = useRouter()
 

@@ -1,14 +1,12 @@
 <script setup>
 import { useGetCategories } from '@/composables/category'
 import { useGetProducts } from '@/composables/product'
-import { ADD, EDIT } from '@/constants'
-import { useStore } from '@/stores/store'
-// import { categoryStore } from '@/stores/categoryStore'
 
-const store = useStore()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
 
 const { documents } = useGetCategories(true)
-store.setCategories(documents)
+  store.setCategories(documents)
 
 const { searchQuery, loading, products } = useGetProducts()
 

@@ -1,8 +1,9 @@
-import { auth } from '@/firebase/config'
+import { getAuth } from 'firebase/auth'
 import { useGetCollection } from '@/composables'
 import { useNameSearch } from '@/composables'
 
 export default function useGetProducts() {
+  const auth = getAuth()
   const { documents } = useGetCollection('products', ['userId', '==', auth.currentUser.uid], ['name'])
 
   const { searchQuery, matchingSearchQuery: products } = useNameSearch(documents)

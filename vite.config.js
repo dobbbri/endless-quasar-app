@@ -23,7 +23,7 @@ export default defineConfig({
         /\.vue\?vue/, // .vue
         /\.md$/ // .md
       ],
-      imports: ['vue', 'vue-router', 'pinia', 'quasar'],
+      imports: ['vue', 'vue-router', 'quasar'],
       dts: 'src/auto-imports.d.ts'
     }),
 

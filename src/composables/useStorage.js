@@ -1,12 +1,11 @@
 import { uid } from 'quasar'
-import { auth, storage } from '@/firebase/config'
+import { storage } from '@/firebase/config'
 import { uploadBytes, getDownloadURL, deleteObject, ref as firebaseRef } from 'firebase/storage'
 import { useNotification } from '@/composables'
 
-export default function useImageUpload() {
+export default function useImageUpload(currentUser) {
   const { notify } = useNotification()
   const uploadError = ref(false)
-  const currentUser = ref(auth.currentUser)
   const image = reactive({
     url: '',
     path: ''
@@ -15,7 +14,7 @@ export default function useImageUpload() {
   const uploadImage = async (file, folder = 'images') => {
     uploadError.value = false
 
-    image.path = `${folder}/${currentUser.value.uid}/${uid()}.jpg`
+    image.path = `${folder}/${currentUser.uid}/${uid()}.jpg`
     const imageRef = firebaseRef(storage, image.path)
 
     await uploadBytes(imageRef, file, { contentType: 'image/jpeg' })

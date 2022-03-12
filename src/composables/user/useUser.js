@@ -8,6 +8,7 @@ import {
 import { useValidation, useNotification } from '@/composables'
 
 export default function useUser() {
+  const auth = getAuth()
   const error = ref(false)
   const loading = ref(false)
   const { rules } = useValidation()
@@ -16,7 +17,6 @@ export default function useUser() {
   const userSignIn = async (user) => {
     error.value = false
     loading.value = true
-    const auth = getAuth()
 
     await signInWithEmailAndPassword(auth, user.email, user.password)
       .catch((err) => {
@@ -42,7 +42,6 @@ export default function useUser() {
   const userSignUp = async (user) => {
     error.value = false
     loading.value = true
-    const auth = getAuth()
 
     await createUserWithEmailAndPassword(auth, user.email, user.password)
       .catch((err) => {
@@ -55,7 +54,6 @@ export default function useUser() {
   const editUserProfile = async (user) => {
     error.value = false
     loading.value = true
-    const auth = getAuth()
 
     await updateProfile(auth.currentUser, user)
       .catch((err) => {
@@ -67,7 +65,6 @@ export default function useUser() {
 
   const userSignOut = async () => {
     loading.value = true
-    const auth = getAuth()
 
     await signOut(auth)
       .catch((err) => console.info('signOut error: ', err.message))

@@ -1,6 +1,8 @@
 import App from './App.vue'
 import router from '@/router'
 import { vCleave } from '@/directives'
+import { ADD, EDIT } from '@/constants'
+import { store } from '@/stores/store'
 import { Quasar, Notify, Dialog } from 'quasar'
 import quasarConfig from '@/quasar.config'
 
@@ -19,7 +21,8 @@ import '@/assets/scss/app.scss'
 
 const myApp = createApp(App)
 myApp.use(router)
-myApp.use(createPinia())
+myApp.provide('store', store)
+myApp.provide('constants',readonly({ ADD: 'ADD', EDIT: 'EDIT' }))
 myApp.use(Quasar, { plugins: { Notify, Dialog }, iconSet: materialIconSet, config: quasarConfig })
 myApp.directive('cleave', vCleave)
 myApp.mount('#app')

@@ -1,11 +1,11 @@
 <script setup>
 import { usePaymentMethod } from '@/composables/paymentMethod'
-import { ADD, EDIT } from '@/constants'
-import { useStore } from '@/stores/store'
 
 const { rules, error, loading, addPaymentMethod, editPaymentMethod, deletePaymentMethod } = usePaymentMethod()
 
-const store = useStore()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
+
 const route = useRoute()
 const router = useRouter()
 

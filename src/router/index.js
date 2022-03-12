@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import routes from '@/router/routes'
-import { useStore } from '@/stores/store'
+import { store } from '@/stores/store'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -10,8 +10,6 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
   if (import.meta.env.DEV) console.info(`navigating from ${from.path} to ${to.path}`)
-
-  const store = useStore()
 
   if (to.meta.requiresAuth && !store.isAuthenticated) return '/signIn'
 

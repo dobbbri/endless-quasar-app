@@ -9,9 +9,8 @@ import {
   ionSettingsOutline,
   ionPower
 } from '@quasar/extras/ionicons-v6'
-import { useStore } from '@/stores/store'
 
-const store = useStore()
+const store = inject('store')
 
 const menuItems = ref([
   { title: 'Ponto de Venda', caption: 'Venda Rápida', icon: ionBasketOutline, route: '/sales' },

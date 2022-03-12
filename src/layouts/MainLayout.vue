@@ -1,7 +1,5 @@
 <script setup>
-import { useStore } from '@/stores/store'
-
-const store = useStore()
+const store = inject('store')
 </script>
 
 <template>

@@ -1,9 +1,8 @@
 <script setup>
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { useStore } from '@/stores/store'
 
 const auth = getAuth()
-const store = useStore()
+const store = inject('store')
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
