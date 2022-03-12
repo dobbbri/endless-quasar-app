@@ -6,7 +6,7 @@ const { ADD, EDIT } = inject('constants')
 const store = inject('store')
 
 const { documents } = useGetCategories(true)
-  store.setCategories(documents)
+store.setCategories(documents)
 
 const { searchQuery, loading, products } = useGetProducts()
 
