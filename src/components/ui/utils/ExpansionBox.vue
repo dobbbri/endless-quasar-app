@@ -2,12 +2,14 @@
 
 defineProps({
   label: { type: String, default: '' },
+  expanded: Boolean
 })
 </script>
 
 <template>
   <div class="box">
-    <div v-if="label" class="text-caption">{{ label }}</div>
-    <slot />
+    <q-expansion-item :label="label" :default-opened="expanded" dense>
+      <slot />
+    </q-expansion-item>
   </div>
 </template>

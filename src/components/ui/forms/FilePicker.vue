@@ -38,7 +38,7 @@ export default {
       @click="$refs.fileInput.pickFiles()"
       :src="image"
     >
-      <div class="absolute-bottom text-caption text-center q-ma-xs">Adicionar imagem</div>
+      <div class="absolute-bottom text-caption text-center q-ma-xs">Adicionar foto/imagem</div>
       <template v-slot:error>
         <div class="absolute-full flex flex-center bg-negative text-white">Erro!</div>
       </template>

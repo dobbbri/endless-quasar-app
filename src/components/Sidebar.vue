@@ -1,7 +1,6 @@
 <script setup>
 import {
   ionBasketOutline,
-  ionWalletOutline,
   ionPricetagOutline,
   ionCubeOutline,
   ionConstructOutline,
@@ -14,12 +13,6 @@ const store = inject('store')
 
 const menuItems = ref([
   { title: 'Ponto de Venda', caption: 'Venda Rápida', icon: ionBasketOutline, route: '/sales' },
-  {
-    title: 'Métodos de Pagamento',
-    caption: 'Cadastro dos Métodos de Pagamentos',
-    icon: ionWalletOutline,
-    route: '/paymentMethods'
-  },
   { title: 'Categorias', caption: 'Cadastro das Categorias', icon: ionPricetagOutline, route: '/categories' },
   { title: 'Produtos', caption: 'Cadastro dos Produtos', icon: ionCubeOutline, route: '/products' },
   { title: 'Serviços', caption: 'Cadastro de Serviços', icon: ionConstructOutline, route: '/products' },

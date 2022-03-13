@@ -1,3 +1,5 @@
+<!-- todo -->
+<!-- https://quasar.dev/vue-components/select#filtering-and-autocomplete -->
 <script setup>
 import opts from '@/components/ui/options'
 const props = defineProps({

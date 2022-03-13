@@ -49,36 +49,14 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
 
       <page-body>
         <box>
-          <!--           <div class="row q-gutter-md"> -->
-          <!--             <div class="col-4"> -->
-          <!--               <file-picker -->
-          <!--                 label="Imagem" -->
-          <!--                 v-model:file="store.product.file" -->
-          <!--                 :url="store.product.image.url" -->
-          <!--               /> -->
-          <!--             </div> -->
-          <!--  -->
-          <!--             <div class="col"> -->
-          <!--               <text-field -->
-          <!--                 v-model="store.product.barCode" -->
-          <!--                 label="Código de barra" -->
-          <!--                 placeholder="Informe o código de barra do produto" -->
-          <!--                 v-focus -->
-          <!--               /> -->
-          <!--  -->
-          <!--               <toggle-field -->
-          <!--                 v-model="store.product.disableStockContol" -->
-          <!--                 :label="store.product.disableStockContol ? 'Não contolar o estoque' : 'Contolar o estoque'" -->
-          <!--               /> -->
-          <!--  -->
-          <!--                 <integer-field -->
-          <!--                   v-if="!store.product.disableStockContol" -->
-          <!--                   v-model="store.product.quantityInStock" -->
-          <!--                   label="Quantidade" -->
-          <!--                   placeholder="Informe o quatidade do produto" -->
-          <!--                 /> -->
-          <!--             </div> -->
-          <!--           </div> -->
+          <select-field
+            v-model="store.product.categoryId"
+            label="Categoria*"
+            :options="store.categories"
+            placeholder="Selecione a categoria do produto"
+            :rules="[rules.isRequired()]"
+            autofocus
+          />
 
           <text-field
             v-model="store.product.name"
@@ -87,35 +65,62 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             :rules="[rules.isRequired()]"
           />
 
-          <!--           <money-field -->
-          <!--             v-model="store.product.salePrice" -->
-          <!--             label="Valor de venda*" -->
-          <!--             plceholder="Informe o valor da venda do produto" -->
-          <!--             :rules="[rules.isRequired()]" -->
-          <!--           /> -->
-          <!--  -->
-          <!--           <money-field -->
-          <!--             v-model="store.product.purchasePrice" -->
-          <!--             label="Valor de compra" -->
-          <!--             placeholder="Informe o valor de compra do produto" -->
-          <!--           /> -->
-
-          <select-field
-            v-model="store.product.categoryId"
-            label="Categoria*"
-            :options="store.categories"
-            placeholder="Selecione a categoria do produto"
+          <money-field
+            v-model="store.product.salePrice"
+            label="Valor de venda*"
+            plceholder="Informe o valor da venda do produto"
             :rules="[rules.isRequired()]"
           />
         </box>
 
-        <box>
+        <expansion-box label="Estoque">
+          <!--     -- -->
+          <!-- gerenciar estoque > -->
+          <!--   estoque automático (sim/nao) -->
+          <!--     quantidade em estoque  (numero) -->
+          <!--     estoque minimo (numero888) -->
+          <!-- movimentacoes > -->
+          <!--   lista de movimentacoes -->
+
+          <toggle-field
+            v-model="store.product.disableStockContol"
+            :label="store.product.disableStockContol ? 'Não contolar o estoque' : 'Contolar o estoque'"
+          />
+
+          <integer-field
+            v-if="!store.product.disableStockContol"
+            v-model="store.product.quantityInStock"
+            label="Quantidade"
+            placeholder="Informe o quatidade do produto"
+          />
+        </expansion-box>
+
+        <expansion-box label="Avançado">
+          <!-- -- -->
+          <!-- unidade de venda -->
+
+          <money-field
+            v-model="store.product.purchasePrice"
+            label="Valor de compra"
+            placeholder="Informe o valor de compra do produto"
+          />
+
+          <text-field
+            v-model="store.product.barCode"
+            label="Código do Produto / Código de barra"
+            placeholder="Informe o código de barra do produto"
+          />
+
           <text-area
             v-model="store.product.description"
             label="Descrição"
             placeholder="Informe a descrição do produto"
           />
-        </box>
+        </expansion-box>
+
+        <expansion-box label="Foto">
+          <file-picker label v-model:file="store.product.file" :url="store.product.image.url" />
+        </expansion-box>
 
         <page-footer>
           <div class="row q-ma-md">

@@ -18,7 +18,7 @@ import 'quasar/src/css/index.sass'
 import '@/assets/scss/app.scss'
 
 createApp(App)
-  .provide('constants', readonly({ ADD: 'ADD', EDIT: 'EDIT' }))
+  .provide('constants', readonly({ ADD: 'ADD', EDIT: 'EDIT', PRODUCT: 'PRODUCT', SERVICE: 'SERVICE' }))
   .provide('store', store)
   .use(router)
   .use(Quasar, { plugins: { Notify, Dialog }, iconSet: quasarIconSet, config: quasarConfig })

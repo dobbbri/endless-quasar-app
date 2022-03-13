@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { getAuth } from 'firebase/auth'
 import routes from '@/router/routes'
 import { store } from '@/stores/store'
 
@@ -11,7 +12,9 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   if (import.meta.env.DEV) console.info(`navigating from ${from.path} to ${to.path}`)
 
-  if (to.meta.requiresAuth && !store.isAuthenticated) return '/signIn'
+  const auth = getAuth()
+
+  if (to.meta.requiresAuth && !auth.currentUser) return '/signIn'
 
   const fromRootPath = `/${from.path.split('/')[1]}`
   const toRootPath = `/${to.path.split('/')[1]}`

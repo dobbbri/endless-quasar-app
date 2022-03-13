@@ -4,7 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Box: typeof import('./components/ui/utils/box.vue')['default']
+    Box: typeof import('./components/ui/utils/Box.vue')['default']
     Btn: typeof import('./components/ui/btns/Btn.vue')['default']
     BtnAdd: typeof import('./components/ui/btns/BtnAdd.vue')['default']
     BtnBack: typeof import('./components/ui/btns/BtnBack.vue')['default']
@@ -17,6 +17,7 @@ declare module 'vue' {
     CategoryFilterList: typeof import('./components/CategoryFilterList.vue')['default']
     CheckBox: typeof import('./components/ui/forms/CheckBox.vue')['default']
     Chip: typeof import('./components/ui/utils/Chip.vue')['default']
+    ExpansionBox: typeof import('./components/ui/utils/ExpansionBox.vue')['default']
     FilePicker: typeof import('./components/ui/forms/FilePicker.vue')['default']
     HomeTabs: typeof import('./components/HomeTabs.vue')['default']
     Icon: typeof import('./components/ui/utils/Icon.vue')['default']

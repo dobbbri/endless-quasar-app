@@ -8,7 +8,7 @@ import opts from '@/components/ui/options'
       <div>
         <slot name="buttons-left" />
       </div>
-      <div class="page-header-title q-toolbar__title ellipsis text-body1">
+      <div class="page-header-title q-toolbar__title ellipsis text-h6">
         <slot name="title" />
       </div>
       <div>
