@@ -16,7 +16,22 @@ export const store = reactive({
   user: {},
   itemsType: ['Produto', 'Serviço'],
   documentTypes: ['CPF', 'CNPJ', 'CI'],
-
+  unityProduct: [
+    {id: 'un', name: 'Unitário' },
+    {id: 'kg', name: 'Kilograma'},
+    {id: 'l', name: 'Litro' },
+    {id: 'm', name: 'Metro'},
+    {id: 'm2', name:'Metro Quadrado' },
+    {id: 'm3', name: 'Metro Cubico'},
+  ],
+  unityService: [
+    {id: 'un', name: 'Valor Base' },
+    {id: 'h', name: 'Hora'},
+    {id: 'd', name: 'Dia' },
+    {id: 'm', name: 'Metro'},
+    {id: 'm2', name:'Metro Quadrado' },
+    {id: 'm3', name: 'Metro Cubico'},
+  ],
 
   // actions
   setIsOpenSidebar(value) { this.isSidebarOpen = value },

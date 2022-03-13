@@ -1,0 +1,27 @@
+Produtos
+  nome
+  valor de venda
+
+  + estoque
+      gerenciar estoque >
+        estoque automático (sim/nao)
+          quantidade em estoque  (numero)
+          estoque minimo (numero888)
+      movimentacoes >
+        lista de movimentacoes
+
+  + foto
+      adicionar fotos (button)
+
+  + avancado
+      unidade de venda
+      valor de custo
+      código do produto
+      descricao
+
+Servicos
+  nome
+  valor de venda
+
+  + avancado
+      unidade de servico
