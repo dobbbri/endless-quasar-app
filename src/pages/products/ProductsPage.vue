@@ -59,16 +59,12 @@ const showUpdatePage = async (doc) => {
         <search-field v-model="searchQuery" />
         <list separator>
           <item v-for="(product, index) in products" :key="index" @click="showUpdatePage(product)">
-            <item-section class="column">
-              <span class="text-subtitle2">{{ product.name }}</span>
-
-              <span>{{ product.quantityInStock }} disponivel</span>
-            </item-section>
-
-            <item-section class="text-right">R$ {{ product.salePrice }}</item-section>
-
-            <item-section avatar>
-              <btn-forward />
+            <item-section>
+              <item-section-label class="row text-subtitle1 text-weight-medium">{{ product.name }}</item-section-label>
+              <item-section-label class="row text-body2" style="height:16px">
+                <span class="col">{{ product.quantityInStock }} disponivel</span>
+                <span class="col text-right">R$ {{ product.salePrice }}</span>
+              </item-section-label>
             </item-section>
           </item>
         </list>

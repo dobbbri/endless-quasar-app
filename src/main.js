@@ -1,7 +1,7 @@
 import App from './App.vue'
 import router from '@/router'
 import { store } from '@/stores/store'
-import { vCleave } from '@/directives'
+import { dbStore } from '@/stores/dbStore'
 
 import { Quasar, Notify, Dialog } from 'quasar'
 import quasarConfig from '@/quasar.config'
@@ -20,7 +20,7 @@ import '@/assets/scss/app.scss'
 createApp(App)
   .provide('constants', readonly({ ADD: 'ADD', EDIT: 'EDIT', PRODUCT: 'PRODUCT', SERVICE: 'SERVICE' }))
   .provide('store', store)
+  .provide('dbStore', dbStore)
   .use(router)
   .use(Quasar, { plugins: { Notify, Dialog }, iconSet: quasarIconSet, config: quasarConfig })
-  .directive('cleave', vCleave)
   .mount('#app')

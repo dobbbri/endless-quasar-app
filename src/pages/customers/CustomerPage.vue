@@ -5,6 +5,7 @@ const { rules, error, loading, addCustomer, editCustomer, deleteCustomer } = use
 
 const { ADD, EDIT } = inject('constants')
 const store = inject('store')
+const { documentTypes } = inject('dbStore')
 
 const route = useRoute()
 const router = useRouter()
@@ -25,6 +26,7 @@ const onDelete = async () => {
 }
 
 const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
+const advanced = computed(() => store.customer.documentNumber !== '' || store.customer.comments !== '' ? true : false)
 </script>
 
 <template>
@@ -50,7 +52,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <text-field
             v-model="store.customer.name"
             label="Nome*"
-            placeholder="Informe o nome do cliente"
+            title="Informe o nome do cliente"
             :rules="[rules.isRequired()]"
             autofocus
           />
@@ -58,45 +60,43 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <phone-field
             v-model="store.customer.cellPhone"
             label="Celular"
-            placeholder="Informe o número do celular do cliente"
+            title="Informe o número do celular do cliente"
           />
 
           <phone-field
             v-model="store.customer.phone"
             label="Telefone"
-            placeholder="Informe o número do telefone do cliente"
-          />
-        </box>
-
-        <box>
-          <select-text
-            v-model="store.customer.documentType"
-            label="Tipo de documento"
-            :options="store.documentTypes"
-            placeholder="Selecione o tipo de documento"
-          />
-
-          <text-field
-            v-model="store.customer.documentNumber"
-            label="Número do documento"
-            placeholder="Informe o número do documento do cliente"
+            title="Informe o número do telefone do cliente"
           />
 
           <text-field
             v-model.trim="store.customer.email"
             type="email"
             label="Email"
-            placeholder="Email do cliente"
+            title="Email do cliente"
           />
         </box>
 
-        <box>
+        <expansion-box label="Avançado" :expanded="advanced">
+          <select-field
+            v-model="store.customer.documentType"
+            label="Tipo de documento"
+            :options="documentTypes"
+            title="Selecione o tipo de documento"
+          />
+
+          <text-field
+            v-model="store.customer.documentNumber"
+            label="Número do documento"
+            title="Informe o número do documento"
+          />
+
           <text-area
             v-model="store.customer.comments"
             label="Observações"
-            placeholder="Observações"
+            title="Adicione as observações do cliente"
           />
-        </box>
+        </expansion-box>
 
         <page-footer>
           <div class="row q-ma-md">

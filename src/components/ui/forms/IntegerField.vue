@@ -7,15 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <q-input
-    v-cleave="{
-      numeral: true,
-      numeralDecimalMark: ',',
-      delimiter: '.'
-    }"
-    v-bind="opts.forms.input"
-    label-slot
-  >
+  <q-input v-bind="opts.forms.input" type="tel" mask="#" fill-mask="0" reverse-fill-mask label-slot>
     <template #label>
       <text-label :label="props.label" />
     </template>

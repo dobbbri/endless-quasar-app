@@ -5,8 +5,6 @@ import Home from '@/pages/Home.vue'
 import SalePage from '@/pages/sale/SalePage.vue'
 import CategoriesPage from '@/pages/categories/CategoriesPage.vue'
 import CategoryPage from '@/pages/categories/CategoryPage.vue'
-import PaymentMethodsPage from '@/pages/paymentMethods/PaymentMethodsPage.vue'
-import PaymentMethodPage from '@/pages/paymentMethods/PaymentMethodPage.vue'
 import CustomersPage from '@/pages/customers/CustomersPage.vue'
 import CustomerPage from '@/pages/customers/CustomerPage.vue'
 import ProductsPage from '@/pages/products/ProductsPage.vue'
@@ -28,19 +26,6 @@ const routes = [
         component: CategoriesPage,
         children: [
           { path: '/categories/category', name: 'category', meta: { requiresAuth: true }, component: CategoryPage }
-        ]
-      },
-      {
-        path: '/paymentMethods',
-        meta: { requiresAuth: true },
-        component: PaymentMethodsPage,
-        children: [
-          {
-            path: '/paymentMethods/paymentMethod',
-            name: 'paymentMethod',
-            meta: { requiresAuth: true },
-            component: PaymentMethodPage
-          }
         ]
       },
       {

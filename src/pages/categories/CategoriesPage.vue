@@ -57,10 +57,6 @@ const showUpdatePage = async (doc) => {
                 <chip v-if="category.disabled" color="negative" style="margin: 0">oculta</chip>
               </item-section-label>
             </item-section>
-
-            <item-section avatar>
-              <btn-forward />
-            </item-section>
           </item>
         </list>
       </div>

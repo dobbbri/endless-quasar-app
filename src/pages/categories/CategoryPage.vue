@@ -50,7 +50,7 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
           <text-field
             v-model="store.category.name"
             label="Nome*"
-            placeholder="Informe o nome da categoria"
+            title="Informe o nome da categoria"
             :rules="[rules.isRequired()]"
             autofocus
           />

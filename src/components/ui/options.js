@@ -2,7 +2,7 @@ const defaults = {
   btn: { rounded: true, ripple: true, noCaps: true },
   chip: { dense: true },
   icon: { size: 'md', dense: true },
-  input: { color: 'primary' }
+  input: { color: 'primary', class: 'text-weight-meium' }
 }
 
 const options = {
@@ -14,22 +14,10 @@ const options = {
 
   forms: {
     input: {
-      dense: false,
-      class: 'q-mb-sm',
-      stackLabel: true,
-      hideBottomSpace: true,
-      textColor: 'blue-grey-10',
-      ...defaults.input
+      dense: false, class: 'q-mb-sm', stackLabel: true, hideBottomSpace: true, textColor: 'blue-9', ...defaults.input
     },
     search: {
-      dense: true,
-      rounded: true,
-      outlined: true,
-      class: 'q-my-sm',
-      rounded: true,
-      clearable: true,
-      textColor: 'blue-grey-10',
-      ...defaults.input
+      dense: true, outlined: true, class: 'q-my-sm', clearable: true, textColor: 'blue-9', ...defaults.input
     },
     checkbox: { dense: false, class: 'q-my-xs', keepColor: true, hideBottomSpace: true, ...defaults.input },
     toggle: { dense: false, class: 'q-my-xs', keepColor: true, hideBottomSpace: true, ...defaults.input }

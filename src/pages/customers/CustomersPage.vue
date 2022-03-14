@@ -57,21 +57,16 @@ const showUpdatePage = async (doc) => {
             @click="showUpdatePage(customer)"
           >
             <item-section class="column">
-              <item-section-label class="text-medium">{{ customer.name }}</item-section-label>
+              <item-section-label class="text-bold">{{ customer.name }}</item-section-label>
 
               <item-section-label
-                v-if="customer.cellPhone || customer.phone"
-                class="column"
-              >{{ customer.cellPhone }} {{ customer.phone }}</item-section-label>
+                v-if="customer.documentNumber"
+              >{{ customer.documentType }}: {{ customer.documentNumber }}</item-section-label>
             </item-section>
 
-            <item-section
-              v-if="customer.documentNumber"
-              class="text-right"
-            >{{ customer.documentType }}: {{ customer.documentNumber }}</item-section>
-
-            <item-section avatar>
-              <btn-forward />
+            <item-section class="column text-right">
+              <span v-if="customer.cellPhone">{{ customer.cellPhone }}</span>
+              <span v-if="customer.phone">{{ customer.phone }}</span>
             </item-section>
           </item>
         </list>

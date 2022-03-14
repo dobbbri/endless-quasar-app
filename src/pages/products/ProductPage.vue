@@ -53,7 +53,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             v-model="store.product.categoryId"
             label="Categoria*"
             :options="store.categories"
-            placeholder="Selecione a categoria do produto"
+            title="Selecione a categoria do produto"
             :rules="[rules.isRequired()]"
             autofocus
           />
@@ -61,14 +61,14 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <text-field
             v-model="store.product.name"
             label="Nome*"
-            placeholder="Informe o nome do produto"
+            title="Informe o nome do produto"
             :rules="[rules.isRequired()]"
           />
 
           <money-field
             v-model="store.product.salePrice"
             label="Valor de venda*"
-            plceholder="Informe o valor da venda do produto"
+            title="Informe o valor da venda do produto"
             :rules="[rules.isRequired()]"
           />
         </box>
@@ -91,7 +91,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             v-if="!store.product.disableStockContol"
             v-model="store.product.quantityInStock"
             label="Quantidade"
-            placeholder="Informe o quatidade do produto"
+            title="Informe o quatidade do produto"
           />
         </expansion-box>
 
@@ -102,19 +102,19 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <money-field
             v-model="store.product.purchasePrice"
             label="Valor de compra"
-            placeholder="Informe o valor de compra do produto"
+            title="Informe o valor de compra do produto"
           />
 
           <text-field
             v-model="store.product.barCode"
             label="Código do Produto / Código de barra"
-            placeholder="Informe o código de barra do produto"
+            title="Informe o código de barra do produto"
           />
 
           <text-area
             v-model="store.product.description"
             label="Descrição"
-            placeholder="Informe a descrição do produto"
+            title="Informe a descrição do produto"
           />
         </expansion-box>
 
