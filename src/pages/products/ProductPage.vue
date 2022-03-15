@@ -49,26 +49,26 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
 
       <page-body>
         <box>
-          <select-field
-            v-model="store.product.categoryId"
-            label="Categoria*"
-            :options="store.categories"
-            title="Selecione a categoria do produto"
-            :rules="[rules.isRequired()]"
-            autofocus
-          />
-
           <text-field
             v-model="store.product.name"
             label="Nome*"
             title="Informe o nome do produto"
             :rules="[rules.isRequired()]"
+            autofocus
           />
 
           <money-field
             v-model="store.product.salePrice"
             label="Valor de venda*"
             title="Informe o valor da venda do produto"
+            :rules="[rules.isRequired()]"
+          />
+
+          <select-field
+            v-model="store.product.categoryId"
+            label="Categoria*"
+            :options="store.categories"
+            title="Selecione a categoria do produto"
             :rules="[rules.isRequired()]"
           />
         </box>

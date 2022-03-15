@@ -23,7 +23,7 @@ const showAddPage = () => {
 }
 
 const showUpdatePage = async (doc) => {
-  store.setCustomer(JSON.parse(JSON.stringify(doc)))
+  store.setCustomer(doc)
   router.push({ name: 'customer', params: { action: EDIT } })
 }
 </script>

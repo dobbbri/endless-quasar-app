@@ -18,7 +18,7 @@ const showAddPage = () => {
 }
 
 const showUpdatePage = async (doc) => {
-  store.setCategory(JSON.parse(JSON.stringify(doc)))
+  store.setCategory(doc)
   router.push({ name: 'category', params: { action: EDIT } })
 }
 </script>
