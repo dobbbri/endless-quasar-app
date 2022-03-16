@@ -1,16 +1,11 @@
 <script setup>
 import opts from '@/components/ui/options'
 
-const props = defineProps({
-  label: String,
+defineProps({
   options: Array
 })
 </script>
 
 <template>
-  <q-select v-bind="opts.forms.input" :options="options" emit-value options-dense label-slot>
-    <template #label>
-      <text-label :label="props.label" />
-    </template>
-  </q-select>
+  <q-select v-bind="opts.forms.input" :options="options" emit-value options-dense />
 </template>

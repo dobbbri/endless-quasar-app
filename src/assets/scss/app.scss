@@ -68,11 +68,10 @@
   animation-duration: 0.4s;
 }
 
-.box {
-  padding: 8px 16px;
-  margin-top: 16px;
-  border-radius: 12px;
-  background: white;
+.bottom-border {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: $blue-grey-2;
 }
 
 // fix position: relative that hide all inside

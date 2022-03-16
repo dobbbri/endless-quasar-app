@@ -46,19 +46,19 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
       </page-header>
 
       <page-body>
-        <box>
+        <expansion-box label="Campos obrigatórios" :expanded="true">
           <text-field
             v-model="store.category.name"
-            label="Nome*"
+            label="Nome"
             title="Informe o nome da categoria"
             :rules="[rules.isRequired()]"
             autofocus
           />
-        </box>
+        </expansion-box>
 
-        <box>
+         <expansion-box :expanded="true" :no-header="true">
           <check-box v-model="store.category.disabled" label="Ocultar esta categoria" />
-        </box>
+        </expansion-box>
 
         <page-footer>
           <div class="row q-ma-md">

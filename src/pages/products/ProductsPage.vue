@@ -49,15 +49,16 @@ const showUpdatePage = async (doc) => {
     </page-header>
 
     <page-body>
-      <q-inner-loading
-        :showing="loading"
-        color="primary"
-        label="obtendo registros..."
-        label-class="text-grey-6"
-      />
-
-      <div v-if="products" class="box">
+      <expansion-box :expanded="true" :no-header="true">
         <search-field v-model="searchQuery" />
+
+        <q-inner-loading
+          :showing="loading"
+          color="primary"
+          label="obtendo registros..."
+          label-class="text-grey-6"
+        />
+
         <list separator>
           <item v-for="(product, index) in products" :key="index" @click="showUpdatePage(product)">
             <item-section>
@@ -69,7 +70,7 @@ const showUpdatePage = async (doc) => {
             </item-section>
           </item>
         </list>
-      </div>
+      </expansion-box>
     </page-body>
   </page>
 </template>

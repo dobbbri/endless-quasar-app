@@ -48,10 +48,10 @@ const advanced = computed(() => store.customer.documentNumber !== '' || store.cu
       </page-header>
 
       <page-body>
-        <box>
+        <expansion-box label="Campos obrigatórios" :expanded="true">
           <text-field
             v-model="store.customer.name"
-            label="Nome*"
+            label="Nome"
             title="Informe o nome do cliente"
             :rules="[rules.isRequired()]"
             autofocus
@@ -75,7 +75,7 @@ const advanced = computed(() => store.customer.documentNumber !== '' || store.cu
             label="Email"
             title="Email do cliente"
           />
-        </box>
+        </expansion-box>
 
         <expansion-box label="Avançado" :expanded="advanced">
           <select-field

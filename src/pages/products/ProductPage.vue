@@ -48,10 +48,10 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
       </page-header>
 
       <page-body>
-        <box>
+        <expansion-box label="Campos obrigatórios" :expanded="true">
           <text-field
             v-model="store.product.name"
-            label="Nome*"
+            label="Nome"
             title="Informe o nome do produto"
             :rules="[rules.isRequired()]"
             autofocus
@@ -59,21 +59,21 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
 
           <money-field
             v-model="store.product.salePrice"
-            label="Valor de venda*"
+            label="Valor de venda"
             title="Informe o valor da venda do produto"
             :rules="[rules.isRequired()]"
           />
 
           <select-field
             v-model="store.product.categoryId"
-            label="Categoria*"
+            label="Categoria"
             :options="store.categories"
             title="Selecione a categoria do produto"
             :rules="[rules.isRequired()]"
           />
-        </box>
+        </expansion-box>
 
-        <expansion-box label="Estoque">
+        <expansion-box label="Gerenciar estoque">
           <!--     -- -->
           <!-- gerenciar estoque > -->
           <!--   estoque automático (sim/nao) -->

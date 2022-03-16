@@ -2,8 +2,8 @@
 <!-- https://quasar.dev/vue-components/select#filtering-and-autocomplete -->
 <script setup>
 import opts from '@/components/ui/options'
-const props = defineProps({
-  label: String,
+
+defineProps({
   options: Array
 })
 </script>
@@ -17,10 +17,5 @@ const props = defineProps({
     option-disable="disabled"
     emit-value
     map-options
-    label-slot
-  >
-    <template #label>
-      <text-label :label="props.label" />
-    </template>
-  </q-select>
+  />
 </template>

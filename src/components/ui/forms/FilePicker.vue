@@ -27,8 +27,6 @@ export default {
 
 <template>
   <label class="column">
-    <span class="label text-blue-grey-9">{{ label }}:</span>
-    <!-- ---------------------------- -->
     <q-img
       class="img-size bg-white rounded-borders cursor-pointer q-uploader--bordered"
       :ratio="1"

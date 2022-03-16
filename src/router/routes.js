@@ -1,6 +1,5 @@
 import MainLayout from '@/layouts/MainLayout.vue'
-import SignInPage from '@/pages/auth/SignInPage.vue'
-import SignUpPage from '@/pages/auth/SignUpPage.vue'
+import SignInSignUpPage from '@/pages/auth/SignInSignUpPage.vue'
 import Home from '@/pages/Home.vue'
 import SalePage from '@/pages/sale/SalePage.vue'
 import CategoriesPage from '@/pages/categories/CategoriesPage.vue'
@@ -16,8 +15,7 @@ const routes = [
     component: MainLayout,
     children: [
       { path: '', redirect: '/signin' },
-      { path: '/signin', component: SignInPage },
-      { path: '/signup', component: SignUpPage },
+      { path: '/signin', component: SignInSignUpPage },
       { path: '/home', meta: { requiresAuth: true }, component: Home },
       { path: '/sale', meta: { requiresAuth: true }, component: SalePage },
       {

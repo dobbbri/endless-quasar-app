@@ -4,7 +4,6 @@ import opts from '@/components/ui/options'
 
 const props = defineProps({
   modelValue: [Number, String],
-  label: String
 })
 
 const { inputRef, formattedValue } = useCurrencyInput({
@@ -27,10 +26,5 @@ const { inputRef, formattedValue } = useCurrencyInput({
     ref="inputRef"
     :modelValue="formattedValue"
     v-bind="opts.forms.input"
-    label-slot
-  >
-    <template #label>
-      <text-label :label="props.label" />
-    </template>
-  </q-input>
+  />
 </template>

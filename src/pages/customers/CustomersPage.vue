@@ -41,15 +41,16 @@ const showUpdatePage = async (doc) => {
     </page-header>
 
     <page-body>
-      <q-inner-loading
-        :showing="loading"
-        color="primary"
-        label="obtendo registros..."
-        label-class="text-grey-6"
-      />
-
-      <div v-if="customers" class="box">
+      <expansion-box :expanded="true" :no-header="true">
         <search-field v-model="searchQuery" />
+
+        <q-inner-loading
+          :showing="loading"
+          color="primary"
+          label="obtendo registros..."
+          label-class="text-grey-6"
+        />
+
         <list separator>
           <item
             v-for="(customer, index) in customers"
@@ -70,7 +71,7 @@ const showUpdatePage = async (doc) => {
             </item-section>
           </item>
         </list>
-      </div>
+      </expansion-box>
     </page-body>
   </page>
 </template>

@@ -1,10 +1,6 @@
 <script setup>
 import opts from '@/components/ui/options'
 
-const props = defineProps({
-  label: String
-})
-
 const mask = ref('(##)####-#####')
 
 const setMask = (e) => {
@@ -13,9 +9,5 @@ const setMask = (e) => {
 </script>
 
 <template>
-  <q-input v-bind="opts.forms.input" type="tel" :mask="mask" @keyup="setMask" label-slot>
-    <template #label>
-      <text-label :label="props.label" />
-    </template>
-  </q-input>
+  <q-input v-bind="opts.forms.input" type="tel" :mask="mask" @keyup="setMask" />
 </template>

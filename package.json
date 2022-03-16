@@ -2,18 +2,18 @@
   "name": "endless",
   "version": "0.0.3",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 5050",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@quasar/extras": "^1.12.5",
+    "@quasar/extras": "^1.13.1",
     "firebase": "^9.6.7",
     "quasar": "^2.5.5",
     "vue": "^3.2.31",
     "vue-currency-input": "^2.4.0",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@quasar/vite-plugin": "^1.0.5",

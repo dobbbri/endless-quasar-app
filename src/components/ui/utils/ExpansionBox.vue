@@ -1,15 +1,23 @@
 <script setup>
+import opts from '@/components/ui/options'
 
 defineProps({
   label: { type: String, default: '' },
-  expanded: Boolean
+  expanded: { type: Boolean, default: false },
+  noHeader: { type: Boolean, default: false },
 })
 </script>
 
 <template>
-  <div class="box">
-    <q-expansion-item :label="label" :default-opened="expanded" dense>
-      <slot />
+  <div v-bind="opts.utils.box">
+    <q-expansion-item
+      :label="label"
+      :header-class="{ 'text-primary': !noHeader, hidden: noHeader }"
+      :default-opened="expanded"
+    >
+      <div class="q-px-md q-pb-sm" :class="{ 'q-py-md': noHeader }">
+        <slot />
+      </div>
     </q-expansion-item>
   </div>
 </template>

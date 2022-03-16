@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="box">
+  <div class="box shadow-4 text-primary">
     <div v-if="label" class="text-caption">{{ label }}</div>
     <slot />
   </div>
