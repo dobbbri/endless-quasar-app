@@ -53,7 +53,7 @@ const showUpdatePage = async (doc) => {
 
               <item-section-label
                 v-if="customer.document.number"
-              >{{ customer.document.type }}: {{ customer.document.number }}</item-section-label>
+              >{{ customer.document.typeId }}: {{ customer.document.number }}</item-section-label>
             </item-section>
 
             <item-section class="column text-right">

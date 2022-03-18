@@ -14,8 +14,6 @@ export const store = reactive({
   categories: [],
   user: {},
 
-  itemsType: ['Produto', 'Serviço'],
-
   // actions
   setIsOpenSidebar(value) { this.isSidebarOpen = value },
   setUsePageTransition(value) { this.usePageTransition = value },
@@ -32,7 +30,7 @@ export const store = reactive({
       name: '',
       description: '',
       categoryId: '',
-      salesUnity: 'un',
+      salesUnityId: 'un',
       userId: '',
       price: { toSell: 0, toBuy: 0 },
       stock: { isAutomatic: false, quantity: 0, minimum: 0 },
@@ -48,7 +46,7 @@ export const store = reactive({
     this.customer = {
       name: '',
       phone: { cell: '', landline: '' },
-      document: { type: 'CPF', number: '' },
+      document: { typeId: 'CPF', number: '' },
       email: '',
       comments: '',
     }

@@ -80,7 +80,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
 
         <expansion-box label="Avançado" :expanded="false">
           <select-field
-            v-model="store.customer.document.Type"
+            v-model="store.customer.document.typeId"
             label="Tipo de documento"
             :options="documentTypes"
             title="Selecione o tipo de documento"

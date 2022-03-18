@@ -59,7 +59,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           />
 
           <money-field
-            v-model="store.product.salePrice"
+            v-model="store.product.price.toSell"
             label="Valor de venda"
             title="Informe o valor da venda do produto"
             :rules="[rules.isRequired()]"
@@ -107,7 +107,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
         <expansion-box label="Avançado">
           <!-- -- -->
           <select-field
-            v-model="store.product.salesUnitId"
+            v-model="store.product.salesUnityId"
             label="Unidade de venda"
             :options="salesUnit"
             title="Selecione a unidade de venda do produto"
