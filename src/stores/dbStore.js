@@ -5,7 +5,7 @@ export const dbStore = reactive({
     { id: 'CPF', name: 'CPF', disabled: false },
     { id: 'CNPJ', name: 'CNPJ', disabled: false },
   ],
-  unityProduct: [
+  salesUnit: [
     { id: 'un', name: 'Unitário', disabled: false },
     { id: 'kg', name: 'Kilograma', disabled: false },
     { id: 'l', name: 'Litro', disabled: false },
@@ -13,7 +13,7 @@ export const dbStore = reactive({
     { id: 'm2', name: 'Metro Quadrado', disabled: false },
     { id: 'm3', name: 'Metro Cubico', disabled: false },
   ],
-  unityService: [
+  servicesUnity: [
     { id: 'un', name: 'Valor Base', disabled: false },
     { id: 'h', name: 'Hora', disabled: false },
     { id: 'd', name: 'Dia', disabled: false },

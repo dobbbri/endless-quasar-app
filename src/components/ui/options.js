@@ -1,5 +1,5 @@
 const defaults = {
-  box: { textColor: 'blue-gray-8', class: 'bg-white q-mt-md bottom-border' },
+  box: {dense: true, class: 'bg-white q-mt-md bottom-border', headerClass: 'bg-blue-2' },
   btn: { rounded: true, ripple: true, noCaps: true },
   chip: { dense: true },
   icon: { size: 'md', dense: true },
@@ -18,7 +18,7 @@ const options = {
       dense: false, class: 'q-mb-sm', stackLabel: false, hideBottomSpace: false, textColor: 'blue-9', ...defaults.input
     },
     search: {
-      dense: true, outlined: true, class: 'q-my-md', clearable: true, textColor: 'blue-9', ...defaults.input
+      dense: true, rounded: true, autofocus: true, outlined: true, class: 'q-my-md', clearable: true, textColor: 'blue-9', ...defaults.input
     },
     checkbox: { dense: false, class: 'q-my-xs', keepColor: true, hideBottomSpace: true, ...defaults.input },
     toggle: { dense: false, class: 'q-my-xs', keepColor: true, hideBottomSpace: true, ...defaults.input }

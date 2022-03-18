@@ -6,7 +6,7 @@ const config = {
     iconSize: 'md',
     textColor: 'white',
     progress: true,
-    actions: [{ color: 'white', rounded: true, dense: true }]
+    actions: [{ icon: 'close', iconSize: 'xs', color: 'grey-7', dense: true }]
   }
 }
 

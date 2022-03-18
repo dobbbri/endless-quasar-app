@@ -9,16 +9,7 @@ const store = inject('store')
 const router = useRouter()
 
 const showAddPage = () => {
-  const doc = {
-    name: '',
-    cellPhone: '',
-    phone: '',
-    documentType: 'CPF',
-    documentNumber: '',
-    email: '',
-    comments: ''
-  }
-  store.setCustomer(doc)
+  store.setNewCustomer()
   router.push({ name: 'customer', params: { action: ADD } })
 }
 
@@ -61,13 +52,13 @@ const showUpdatePage = async (doc) => {
               <item-section-label class="text-bold">{{ customer.name }}</item-section-label>
 
               <item-section-label
-                v-if="customer.documentNumber"
-              >{{ customer.documentType }}: {{ customer.documentNumber }}</item-section-label>
+                v-if="customer.document.number"
+              >{{ customer.document.type }}: {{ customer.document.number }}</item-section-label>
             </item-section>
 
             <item-section class="column text-right">
-              <span v-if="customer.cellPhone">{{ customer.cellPhone }}</span>
-              <span v-if="customer.phone">{{ customer.phone }}</span>
+              <span v-if="customer.phone.cell">{{ customer.phone.cell }}</span>
+              <span v-if="customer.phone.landline">{{ customer.phone.landline }}</span>
             </item-section>
           </item>
         </list>

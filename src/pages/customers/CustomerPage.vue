@@ -26,7 +26,6 @@ const onDelete = async () => {
 }
 
 const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
-const advanced = computed(() => store.customer.documentNumber !== '' || store.customer.comments !== '' ? true : false)
 </script>
 
 <template>
@@ -40,7 +39,7 @@ const advanced = computed(() => store.customer.documentNumber !== '' || store.cu
         <template #buttons-right>
           <btn-delete
             v-if="route.params.action === EDIT"
-            title="Excluir cliente"
+            title="Excluir este cliente?"
             :loading="loading"
             @delete="onDelete"
           />
@@ -56,17 +55,19 @@ const advanced = computed(() => store.customer.documentNumber !== '' || store.cu
             :rules="[rules.isRequired()]"
             autofocus
           />
+        </expansion-box>
 
+        <expansion-box label="Contato" :expanded="true">
           <phone-field
-            v-model="store.customer.cellPhone"
-            label="Celular"
+            v-model="store.customer.phone.cell"
+            label="Celular / Whatsapp"
             title="Informe o número do celular do cliente"
           />
 
           <phone-field
-            v-model="store.customer.phone"
-            label="Telefone"
-            title="Informe o número do telefone do cliente"
+            v-model="store.customer.phone.landline"
+            label="Telefone fixo"
+            title="Informe o número do telefone fixo do cliente"
           />
 
           <text-field
@@ -77,16 +78,16 @@ const advanced = computed(() => store.customer.documentNumber !== '' || store.cu
           />
         </expansion-box>
 
-        <expansion-box label="Avançado" :expanded="advanced">
+        <expansion-box label="Avançado" :expanded="false">
           <select-field
-            v-model="store.customer.documentType"
+            v-model="store.customer.document.Type"
             label="Tipo de documento"
             :options="documentTypes"
             title="Selecione o tipo de documento"
           />
 
           <text-field
-            v-model="store.customer.documentNumber"
+            v-model="store.customer.document.number"
             label="Número do documento"
             title="Informe o número do documento"
           />

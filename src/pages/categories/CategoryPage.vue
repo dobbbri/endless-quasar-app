@@ -38,7 +38,7 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
         <template #buttons-right>
           <btn-delete
             v-if="route.params.action === EDIT"
-            title="Excluir categoria"
+            title="Excluir esta categoria?"
             :loading="loading"
             @delete="onDelete"
           />
@@ -57,7 +57,7 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
         </expansion-box>
 
          <expansion-box :expanded="true" :no-header="true">
-          <check-box v-model="store.category.disabled" label="Ocultar esta categoria" />
+          <check-box v-model="store.category.inactive" label="Ocultar esta categoria" />
         </expansion-box>
 
         <page-footer>

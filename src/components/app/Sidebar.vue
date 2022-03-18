@@ -24,30 +24,30 @@ const menuItems = ref([
 
 <template>
   <div>
-    <q-drawer v-model="store.isSidebarOpen" show-if-above bordered>
-      <list class="q-py-sm" style="border-bottom: 1px solid">
+    <q-drawer v-model="store.isSidebarOpen" show-if-above side="left" behavior="mobile" bordered>
+      <list class="q-pt-sm border-bottom">
         <item class="row" :clickable="false">
           <item-section avatar class="q-pl-md">
             <q-avatar size="lg" class="bg-white">
               <img src="/src/assets/images/logo.svg" />
             </q-avatar>
           </item-section>
-          <q-space />
-          <item-section avatar>
-            <btn-forward to="/categories" />
-          </item-section>
         </item>
-        <item :clickable="false">
-          <item-section class="q-pl-md">
+        <item to="/profile" class="q-mx-md">
+          <item-section>
             <item-section-label class="text-weight-medium" to="/categories">Sergio Dobri</item-section-label>
             <item-section-label caption>sergiodobri@gmail.com</item-section-label>
+          </item-section>
+          <q-space />
+          <item-section avatar>
+            <btn-forward />
           </item-section>
         </item>
       </list>
 
-      <q-scroll-area style="height: calc(100% - 120px)">
+      <q-scroll-area style="height: calc(100% - 150px)">
         <list>
-          <item v-for="(item, index) in menuItems" :key="index" :to="item.route" class="q-mb-xs">
+          <item v-for="(item, index) in menuItems" :key="index" :to="item.route">
             <item-section v-if="item.icon" avatar>
               <icon :name="item.icon" size="md" class="q-pl-md" />
             </item-section>

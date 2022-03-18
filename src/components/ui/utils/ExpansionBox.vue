@@ -9,15 +9,21 @@ defineProps({
 </script>
 
 <template>
-  <div v-bind="opts.utils.box">
-    <q-expansion-item
-      :label="label"
-      :header-class="{ 'text-primary': !noHeader, hidden: noHeader }"
-      :default-opened="expanded"
-    >
-      <div class="q-px-md q-pb-sm" :class="{ 'q-py-md': noHeader }">
-        <slot />
-      </div>
-    </q-expansion-item>
-  </div>
+  <q-expansion-item
+    v-bind="opts.utils.box"
+    :label="label"
+    :header-class="{ 'text-weight-medium': !noHeader, hidden: noHeader }"
+    :default-opened="expanded"
+    class="border-top"
+  >
+    <div class="q-px-md q-pb-sm" :class="{ 'q-py-md': noHeader }">
+      <slot />
+    </div>
+  </q-expansion-item>
 </template>
+
+<style lang="scss" scoped>
+.q-item__label {
+  padding-left: 10px;
+}
+</style>

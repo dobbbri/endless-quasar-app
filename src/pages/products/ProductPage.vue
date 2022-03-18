@@ -5,6 +5,7 @@ const { rules, error, loading, addProduct, editProduct, deleteProduct } = usePro
 
 const { ADD, EDIT } = inject('constants')
 const store = inject('store')
+const { salesUnit } = inject('dbStore')
 
 const route = useRoute()
 const router = useRouter()
@@ -40,7 +41,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
         <template #buttons-right>
           <btn-delete
             v-if="route.params.action === EDIT"
-            title="Excluir produto"
+            title="Excluir este produto?"
             :loading="loading"
             @delete="onDelete"
           />
@@ -83,31 +84,50 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <!--   lista de movimentacoes -->
 
           <toggle-field
-            v-model="store.product.disableStockContol"
-            :label="store.product.disableStockContol ? 'Não contolar o estoque' : 'Contolar o estoque'"
+            v-model="store.product.stock.isAutomatic"
+            :label="store.product.stock.isAutomatic ? 'Contolar automaticamente' : 'Não contolar'"
           />
 
           <integer-field
-            v-if="!store.product.disableStockContol"
-            v-model="store.product.quantityInStock"
+            :disable="!store.product.stock.isAutomatic"
+            :readonly="store.product.stock.isAutomatic"
+            v-model="store.product.stock.quantity"
             label="Quantidade"
-            title="Informe o quatidade do produto"
+            title="Informe a quatidade do produto"
+          />
+
+          <integer-field
+            :disable="!store.product.stock.isAutomatic"
+            v-model="store.product.stock.minimum"
+            label="Quantidade mínima"
+            title="Informe a quatidade mínima do produto"
           />
         </expansion-box>
 
         <expansion-box label="Avançado">
           <!-- -- -->
-          <!-- unidade de venda -->
+          <select-field
+            v-model="store.product.salesUnitId"
+            label="Unidade de venda"
+            :options="salesUnit"
+            title="Selecione a unidade de venda do produto"
+          />
 
           <money-field
-            v-model="store.product.purchasePrice"
+            v-model="store.product.price.toBuy"
             label="Valor de compra"
             title="Informe o valor de compra do produto"
           />
 
           <text-field
-            v-model="store.product.barCode"
-            label="Código do Produto / Código de barra"
+            v-model="store.product.code.bar"
+            label="Código de barra"
+            title="Informe o código de barra do produto"
+          />
+
+          <text-field
+            v-model="store.product.code.internal"
+            label="Código do Produto"
             title="Informe o código de barra do produto"
           />
 

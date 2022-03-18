@@ -69,7 +69,7 @@
 }
 
 .bottom-border {
-  border-width: 0 0 1px 0;
+  border-width: 0px 0;
   border-style: solid;
   border-color: $blue-grey-2;
 }
@@ -79,9 +79,13 @@
   position: unset;
 }
 
+.q-dialog__title {
+  font-weight: 500;
+  font-size: 18px;
+}
 .q-list--dense > .q-item,
 .q-item--dense {
-  padding: 6px 4px;
+  padding: 10px 4px;
 }
 .q-item__section--avatar {
   min-width: 8px;

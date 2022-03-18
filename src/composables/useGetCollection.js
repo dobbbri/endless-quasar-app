@@ -1,32 +1,17 @@
-import { collection, onSnapshot, query, where, orderBy } from 'firebase/firestore'
-import { db } from '@/firebase/config'
+import { onSnapshot } from 'firebase/firestore'
 import { useNotification } from '@/composables'
 const { notify } = useNotification()
 
-export default function useCollection(_collection, _where, _order, isASelect = false) {
+export default function useCollection(colRef, isForSelect = false) {
   const documents = ref(null)
-  const loading = ref(false)
-
-  let colRef = collection(db, _collection)
-
-  if (_where) {
-    if (_order) {
-      colRef = query(colRef, where(..._where), orderBy(..._order))
-    } else {
-      colRef = query(colRef, where(..._where))
-    }
-  } else if (_order) {
-    colRef = query(colRef, orderBy(..._order))
-  }
-
-  loading.value = true
+  const loading = ref(true)
 
   const unsub = onSnapshot(colRef,
     (snapshot) => {
       let results = []
-      if (isASelect) {
+      if (isForSelect) {
         snapshot.docs.forEach((doc) => {
-          results.push({ id: doc.id, name: doc.data().name, disabled: doc.data().disabled })
+          results.push({ id: doc.id, name: doc.data().name })
         })
       } else {
         snapshot.docs.forEach((doc) => {

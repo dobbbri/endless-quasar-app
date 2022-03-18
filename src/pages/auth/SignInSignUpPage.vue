@@ -57,77 +57,79 @@ onMounted(() => userSignOut())
     </page-header>
 
     <page-body class="bg-white">
-      <page-footer style="background: white">
-        <expansion-box :expanded="true" :no-header="true">
-          <q-form @submit="onSubmit">
-            <!-- email -->
-            <text-field
-              v-model.trim="form.email"
-              type="email"
-              label="Email"
-              title="Informe seu email"
-              :rules="[rules.isRequired(), rules.isValidEmail()]"
+      <q-avatar size="120px" class="bg-white q-mt-xl q-mx-auto full-width">
+        <img src="/src/assets/images/logo.svg" />
+      </q-avatar>
+
+      <expansion-box :expanded="true" :no-header="true">
+        <q-form @submit="onSubmit">
+          <!-- email -->
+          <text-field
+            v-model.trim="form.email"
+            type="email"
+            label="Email"
+            title="Informe seu email"
+            :rules="[rules.isRequired(), rules.isValidEmail()]"
+          />
+
+          <!-- password -->
+          <password-field
+            v-model.trim="form.password"
+            label="Senha de acesso"
+            title="Informe sua senha de acesso"
+            :required="true"
+            :rules="[
+              rules.isRequired(),
+              rules.atLeastOneUpperCase(),
+              rules.atLeastOneLowerCase(),
+              rules.atLeastOneDigit(),
+              rules.atLeastOneSpecialCharacter(),
+              rules.minLength(8),
+              rules.maxLength(30)
+            ]"
+          />
+
+          <!-- Use Term -->
+          <div
+            v-if="!isSignIn"
+            class="q-py-md text-body2 text-center text-weight-medium text-blue-grey-5"
+          >
+            Ao pressionar o botão criar conta você afirma que leu e que concorda com os nossos&nbsp;
+            <router-link class="text-primary text-no-wrap" to="/terms">Termo de Uso</router-link>
+          </div>
+
+          <!-- submit -->
+          <div class="row justify-center">
+            <btn
+              unelevated
+              color="primary"
+              :label="buttonTitle"
+              type="submit"
+              class="full-width"
+              :loading="loading"
+              :disable="loading"
             />
+          </div>
 
-            <!-- password -->
-            <password-field
-              v-model.trim="form.password"
-              label="Senha de acesso"
-              title="Informe sua senha de acesso"
-              :required="true"
-              :rules="[
-                rules.isRequired(),
-                rules.atLeastOneUpperCase(),
-                rules.atLeastOneLowerCase(),
-                rules.atLeastOneDigit(),
-                rules.atLeastOneSpecialCharacter(),
-                rules.minLength(8),
-                rules.maxLength(30)
-              ]"
-            />
-
-            <!-- Use Term -->
-            <div
-              v-if="!isSignIn"
-              class="q-py-md text-body2 text-center text-weight-medium text-blue-grey-5"
-            >
-              Ao pressionar o botão criar conta você afirma que leu e que concorda com os nossos&nbsp;
-              <router-link class="text-primary text-no-wrap" to="/terms">Termo de Uso</router-link>
+          <!-- go to -->
+          <div
+            class="q-py-md text-body2 text-center full-width text-weight-medium text-blue-grey-5"
+          >
+            <div v-if="isSignIn">
+              Não tem uma conta:
+              <br />
+              <q-btn flat label="Crie sua Conta" class="text-primary" @click="toggle" />
             </div>
 
-            <!-- submit -->
-            <div class="row justify-center">
-              <btn
-                unelevated
-                color="primary"
-                :label="buttonTitle"
-                type="submit"
-                class="full-width"
-                :loading="loading"
-                :disable="loading"
-              />
+            <div v-else>
+              Já tem uma conta:
+              <br />
+              <q-btn flat label="Faça seu Login" class="text-primary" @click="toggle" />
             </div>
-
-            <!-- go to -->
-            <div
-              class="q-py-md text-body2 text-center full-width text-weight-medium text-blue-grey-5"
-            >
-              <div v-if="isSignIn">
-                Não tem uma conta:
-                <br />
-                <q-btn flat label="Crie sua Conta" class="text-primary" @click="toggle" />
-              </div>
-
-              <div v-else>
-                Já tem uma conta:
-                <br />
-                <q-btn flat label="Faça seu Login" class="text-primary" @click="toggle" />
-              </div>
-            </div>
-            <!-- -- -->
-          </q-form>
-        </expansion-box>
-      </page-footer>
+          </div>
+          <!-- -- -->
+        </q-form>
+      </expansion-box>
       <!-- -- -->
     </page-body>
   </page>

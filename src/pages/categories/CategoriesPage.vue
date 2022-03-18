@@ -9,11 +9,7 @@ const store = inject('store')
 const router = useRouter()
 
 const showAddPage = () => {
-  const doc = {
-    name: '',
-    disabled: false
-  }
-  store.setCategory(doc)
+  store.setNewCategory()
   router.push({ name: 'category', params: { action: ADD } })
 }
 
@@ -55,7 +51,7 @@ const showUpdatePage = async (doc) => {
             <item-section>
               <item-section-label>
                 {{ category.name }}
-                <chip v-if="category.disabled" color="negative" style="margin: 0">oculta</chip>
+                <chip v-if="category.inactive" color="negative" style="margin: 0">oculta</chip>
               </item-section-label>
             </item-section>
           </item>

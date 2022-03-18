@@ -3,7 +3,8 @@ const store = inject('store')
 </script>
 
 <template>
-  <q-layout view="lHh Lpr lFf" :class="{ 'ios-browser-swiping-back': store.iosBrowserSwipingBack }">
+  <q-layout view="hHh Lpr lFf" :class="{ 'ios-browser-swiping-back': store.iosBrowserSwipingBack }">
+    <sidebar />
     <q-page-container>
       <router-view :key="$route.fullPath" v-slot="{ Component }">
         <keep-alive>
@@ -11,6 +12,5 @@ const store = inject('store')
         </keep-alive>
       </router-view>
     </q-page-container>
-    <sidebar />
   </q-layout>
 </template>

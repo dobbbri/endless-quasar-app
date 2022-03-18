@@ -2,9 +2,8 @@ import { collection, query, where, orderBy } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { db } from '@/firebase/config'
 import { useGetCollection } from '@/composables'
-import { useNameSearch } from '@/composables'
 
-export default function useGetCategories() {
+export default function useGetCategoriesForSelect() {
   const auth = getAuth()
 
   const colRef = query(
@@ -13,9 +12,7 @@ export default function useGetCategories() {
     orderBy('name')
   )
 
-  const { loading, documents } = useGetCollection(colRef)
+  const { documents: categories } = useGetCollection(colRef, true)
 
-  const { searchQuery, matchingSearchQuery: categories } = useNameSearch(documents)
-
-  return { searchQuery, loading, categories }
+  return { categories }
 }

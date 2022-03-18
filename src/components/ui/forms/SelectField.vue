@@ -14,7 +14,6 @@ defineProps({
     :options="options"
     option-value="id"
     option-label="name"
-    option-disable="disabled"
     emit-value
     map-options
   />
