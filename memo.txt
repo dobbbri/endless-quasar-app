@@ -1,0 +1,66 @@
+With Firebase Version 9 (Dec, 2021 Update):
+
+You must make a document reference with "categories/5gF5FqRPvdroRF8isOwdand" then use it in your query:
+
+import { doc, query, collection, where, getDocs } from "firebase/firestore";
+
+const categoryDocRef = doc(db, "5gF5FqRPvdroRF8isOwd");
+
+const q = query(
+  collection(db, "tickets"),
+  where("category", "==", categoryDocRef)
+);
+
+const ticketDocsSnap = await getDocs(q);
+
+created: firebase.firestore.FieldValue.serverTimestamp()
+
+import { doc, setDoc, Timestamp } from "firebase/firestore";
+
+const docData = {
+    stringExample: "Hello world!",
+    booleanExample: true,
+    numberExample: 3.14159265,
+    dateExample: Timestamp.fromDate(new Date("December 10, 1815")),
+    arrayExample: [5, true, "hello"],
+    nullExample: null,
+    objectExample: {
+        a: 5,
+        b: {
+            nested: "foo"
+        }
+    }
+};
+await setDoc(doc(db, "data", "one"), docData);
+data_types.js
+
+
+
+
+Produtos
+  nome
+  valor de venda
+
+  + estoque
+      gerenciar estoque >
+        estoque automático (sim/nao)
+          quantidade em estoque  (numero)
+          estoque minimo (numero888)
+      movimentacoes >
+        lista de movimentacoes
+
+  + foto
+      adicionar fotos (button)
+
+  + avancado
+      unidade de venda
+      valor de custo
+      código do produto
+      descricao
+
+Servicos
+  nome
+  valor de venda
+
+  + avancado
+      unidade de servico

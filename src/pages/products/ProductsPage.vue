@@ -3,10 +3,9 @@ import { useGetCategoriesForSelect } from '@/composables/category'
 import { useGetProducts } from '@/composables/product'
 
 const { ADD, EDIT } = inject('constants')
-const store = inject('store')
+const store = inject('dbStore')
 
 const { categories } = useGetCategoriesForSelect()
-console.log(categories)
 store.setCategories(categories)
 
 const { searchQuery, loading, products } = useGetProducts()
