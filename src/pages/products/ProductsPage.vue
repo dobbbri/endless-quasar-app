@@ -51,9 +51,14 @@ const showUpdatePage = async (doc) => {
         <list separator>
           <item v-for="(product, index) in products" :key="index" @click="showUpdatePage(product)">
             <item-section>
-              <item-section-label class="row text-subtitle1 text-weight-medium">{{ product.name }}</item-section-label>
+              <item-section-label class="row text-subtitle1 text-weight-medium">
+                {{ product.name }}
+              </item-section-label>
               <item-section-label class="row text-body2" style="height:16px">
-                <span class="col">{{ product.stock.quantity }} disponivel</span>
+                <span class="col">
+                  <chip class="q-ma-none">{{ product.refs.category.name }}</chip>
+                </span>
+                <span v-if="product.stock.isAutomatic" class="col">{{ product.stock.quantity }} disponivel</span>
                 <span class="col text-right">R$ {{ product.price.toSell }}</span>
               </item-section-label>
             </item-section>

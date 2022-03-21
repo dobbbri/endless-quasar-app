@@ -4,7 +4,7 @@ import { useGetCategories } from '@/composables/category'
 const { searchQuery, loading, categories } = useGetCategories()
 
 const { ADD, EDIT } = inject('constants')
-const store = inject('store')
+const store = inject('dbStore')
 
 const router = useRouter()
 
@@ -51,7 +51,7 @@ const showUpdatePage = async (doc) => {
             <item-section>
               <item-section-label>
                 {{ category.name }}
-                <chip v-if="category.inactive" color="negative" style="margin: 0">oculta</chip>
+                <chip v-if="category.inactive" color="negative">oculta</chip>
               </item-section-label>
             </item-section>
           </item>

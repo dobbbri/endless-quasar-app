@@ -1,5 +1,5 @@
 const defaults = {
-  box: {dense: true, class: 'bg-white q-mt-md bottom-border', headerClass: 'bg-blue-2' },
+  box: { dense:false, class: 'bg-white q-mt-md overflow-hidden ', style: 'border-radius: 12px' },
   btn: { rounded: true, ripple: true, noCaps: true },
   chip: { dense: true },
   icon: { size: 'md', dense: true },
@@ -30,10 +30,10 @@ const options = {
   },
 
   pages: {
-    page: { class: 'page absolute-top fit bg-blue-grey-1 shadow-4' },
-    header: { class: 'page-header q-header q-layout__section--marginal absolute-top bg-white text-dark bottom-border' },
+    page: { class: 'page bg-blue-grey-1 absolute-top fit shadow-4' },
+    header: { class: 'page-header bg-blue-grey-1 q-header q-layout__section--marginal absolute-top text-dark bottom-border' },
     body: { class: 'page-body absolute-top fit' },
-    footer: { class: 'fixed-bottom' }
+    footer: { class: 'fixed-bottom bg-blue-grey-1 ' }
   },
 
   utils: {

@@ -4,7 +4,7 @@ import { useCategory } from '@/composables/category'
 const { rules, error, loading, addCategory, editCategory, deleteCategory } = useCategory()
 
 const { ADD, EDIT } = inject('constants')
-const store = inject('store')
+const store = inject('dbStore')
 
 const route = useRoute()
 const router = useRouter()
@@ -46,7 +46,7 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
       </page-header>
 
       <page-body>
-        <expansion-box label="Campos obrigatórios" :expanded="true">
+        <expansion-box icon="explorer" label="Campos obrigatórios" :expanded="true">
           <text-field
             v-model="store.category.name"
             label="Nome"

@@ -15,10 +15,10 @@ export default function useCollection(colRef, isForSelect = false) {
     } else {
       snapshot.docs.forEach(async (doc) => {
         let data = { ...doc.data(), id: doc.id }
-        if (data.category) {
-          const catSnap = await getDoc(data.category)
-          if (userData.exists()) {
-            data.category2 = { id: catSnap.id, name: catSnap.data().name }
+        if (data.categoryRef) {
+          const catSnap = await getDoc(data.categoryRef)
+          if (catSnap.exists()) {
+            data.refs = {category: { id: catSnap.id, name: catSnap.data().name }}
           }
         }
         results.push(data)
