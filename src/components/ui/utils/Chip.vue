@@ -1,13 +1,9 @@
 <script setup>
 import opts from '@/components/ui/options'
-
-defineProps({
-  color: String
-})
 </script>
 
 <template>
-  <q-chip v-bind="opts.utils.chip" :color="color">
+  <q-chip v-bind="opts.utils.chip">
     <slot />
   </q-chip>
 </template>

@@ -13,15 +13,18 @@ const form = reactive({
 })
 
 const isSignIn = ref(true)
-const buttonTitle = ref("ENTRAR")
-const pageTitle = ref("Faça seu Login")
+const buttonTitle = ref('ENTRAR')
+const pageTitle = ref('Faça seu Login')
 
-watch(() => isSignIn.value, () => {
-  buttonTitle.value = isSignIn.value ? 'ENTRAR' : 'CRIAR CONTA'
-  pageTitle.value = isSignIn.value ? 'Faça seu Login' : 'Crie sua Conta'
-})
+watch(
+  () => isSignIn.value,
+  () => {
+    buttonTitle.value = isSignIn.value ? 'ENTRAR' : 'CRIAR CONTA'
+    pageTitle.value = isSignIn.value ? 'Faça seu Login' : 'Crie sua Conta'
+  }
+)
 
-const toggle = () => isSignIn.value = !isSignIn.value
+const toggle = () => (isSignIn.value = !isSignIn.value)
 
 const onSubmit = async () => {
   if (isSignIn.value) {
@@ -90,10 +93,7 @@ onMounted(() => userSignOut())
           />
 
           <!-- Use Term -->
-          <div
-            v-if="!isSignIn"
-            class="q-py-md text-body2 text-center text-weight-medium text-blue-grey-5"
-          >
+          <div v-if="!isSignIn" class="q-py-md text-body2 text-center text-weight-medium text-blue-grey-5">
             Ao pressionar o botão criar conta você afirma que leu e que concorda com os nossos&nbsp;
             <router-link class="text-primary text-no-wrap" to="/terms">Termo de Uso</router-link>
           </div>
@@ -112,9 +112,7 @@ onMounted(() => userSignOut())
           </div>
 
           <!-- go to -->
-          <div
-            class="q-py-md text-body2 text-center full-width text-weight-medium text-blue-grey-5"
-          >
+          <div class="q-py-md text-body2 text-center full-width text-weight-medium text-blue-grey-5">
             <div v-if="isSignIn">
               Não tem uma conta:
               <br />

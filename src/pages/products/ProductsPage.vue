@@ -41,12 +41,7 @@ const showUpdatePage = async (doc) => {
       <expansion-box :expanded="true" :no-header="true">
         <search-field v-model="searchQuery" />
 
-        <q-inner-loading
-          :showing="loading"
-          color="primary"
-          label="obtendo registros..."
-          label-class="text-grey-6"
-        />
+        <q-inner-loading :showing="loading" color="primary" label="obtendo registros..." label-class="text-grey-6" />
 
         <list separator>
           <item v-for="(product, index) in products" :key="index" @click="showUpdatePage(product)">
@@ -54,11 +49,11 @@ const showUpdatePage = async (doc) => {
               <item-section-label class="row text-subtitle1 text-weight-medium">
                 {{ product.name }}
               </item-section-label>
-              <item-section-label class="row text-body2" style="height:16px">
+              <item-section-label class="row text-body2" style="height: 16px">
                 <span class="col">
-                  <chip class="q-ma-none">{{ product.refs.category.name }}</chip>
+                  <chip>{{ product.category.name }}</chip>
                 </span>
-                <span v-if="product.stock.isAutomatic" class="col">{{ product.stock.quantity }} disponivel</span>
+                <span v-if="product.stock.isAutomatic" class="col">{{ product.stock.quantity }} {{product.saleUnity.name}}</span>
                 <span class="col text-right">R$ {{ product.price.toSell }}</span>
               </item-section-label>
             </item-section>

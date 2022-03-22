@@ -35,23 +35,14 @@ const showUpdatePage = async (doc) => {
       <expansion-box :expanded="true" :no-header="true">
         <search-field v-model="searchQuery" />
 
-        <q-inner-loading
-          :showing="loading"
-          color="primary"
-          label="obtendo registros..."
-          label-class="text-grey-6"
-        />
+        <q-inner-loading :showing="loading" color="primary" label="obtendo registros..." label-class="text-grey-6" />
 
         <list separator>
-          <item
-            v-for="(category, index) in categories"
-            :key="index"
-            @click="showUpdatePage(category)"
-          >
+          <item v-for="(category, index) in categories" :key="index" @click="showUpdatePage(category)">
             <item-section>
               <item-section-label>
                 {{ category.name }}
-                <chip v-if="category.inactive" color="negative">oculta</chip>
+                <chip v-if="category.inactive">Oculta</chip>
               </item-section-label>
             </item-section>
           </item>

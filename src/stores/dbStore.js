@@ -1,37 +1,53 @@
 export const dbStore = reactive({
   // state
-  service: {},
-  services: [],
-  customer: {},
-  customers: [],
+  user: {},
   category: {},
   categories: [],
-  user: {},
-
-  setUser(value) { this.user = value },
-  logout() { this.user = null },
-
-  setService(value) { this.service = value },
-  setServices(values) { this.services = values },
-
+  customer: {},
+  customers: [],
+  documentTypes: [],
+  paymentMethods: [],
   product: {},
   products: [],
+  salesUnit: [],
+  service: {},
+  services: [],
+  servicesUnity: [],
+
+  setUser(value) {
+    this.user = value
+  },
+  logout() {
+    this.user = null
+  },
+
+  setService(value) {
+    this.service = value
+  },
+  setServices(values) {
+    this.services = values
+  },
+
   setNewProduct() {
     this.product = {
       name: '',
       description: '',
-      categoryId: '',
-      salesUnityId: 'un',
-      userId: '',
+      categoryRef: '',
+      saleUnityRef: 'salesUnity/un',
       price: { toSell: 0, toBuy: 0 },
       stock: { isAutomatic: false, quantity: 0, minimum: 0 },
       code: { bar: '', internal: '' },
       image: { url: null, path: '' },
+      userId: '',
       file: null
     }
   },
-  setProduct(value) { this.product = value },
-  setProducts(values) { this.products = values },
+  setProduct(value) {
+    this.product = value
+  },
+  setProducts(values) {
+    this.products = values
+  },
 
   setNewCustomer() {
     this.customer = {
@@ -39,11 +55,15 @@ export const dbStore = reactive({
       phone: { cell: '', landline: '' },
       document: { typeId: 'CPF', number: '' },
       email: '',
-      comments: '',
+      comments: ''
     }
   },
-  setCustomer(value) { this.customer = value },
-  setCustomers(values) { this.customers = values },
+  setCustomer(value) {
+    this.customer = value
+  },
+  setCustomers(values) {
+    this.customers = values
+  },
 
   setNewCategory() {
     this.category = {
@@ -51,40 +71,59 @@ export const dbStore = reactive({
       inactive: false
     }
   },
-  setCategory(value) { this.category = value },
-  setCategories(values) { this.categories = values },
+  setCategory(value) {
+    this.category = value
+  },
+  setCategories(values) {
+    this.categories = values
+  },
+
+  setDocumentTypes(values) {
+    this.documentTypes = values
+  },
+
+  setSalesUnit(values) {
+    this.salesUnit = values
+  },
+
+  setServicesUnity(values) {
+    this.servicesUnity = values
+  },
+
+  setPaymentMethods(values) {
+    this.paymentMethods = values
+  },
 
   documentTypes: [
-    { id: 'CI', name: 'CI', disabled: false },
-    { id: 'CPF', name: 'CPF', disabled: false },
-    { id: 'CNPJ', name: 'CNPJ', disabled: false },
+    { id: 'CI', name: 'CI' },
+    { id: 'CPF', name: 'CPF' },
+    { id: 'CNPJ', name: 'CNPJ' }
   ],
-  salesUnit: [
-    { id: 'un', name: 'Unitário', disabled: false },
-    { id: 'kg', name: 'Kilograma', disabled: false },
-    { id: 'l', name: 'Litro', disabled: false },
-    { id: 'm', name: 'Metro', disabled: false },
-    { id: 'm2', name: 'Metro Quadrado', disabled: false },
-    { id: 'm3', name: 'Metro Cubico', disabled: false },
+  salesUnity: [
+    { id: 'un', name: 'Unitário' },
+    { id: 'kg', name: 'Kilograma' },
+    { id: 'l', name: 'Litro' },
+    { id: 'm', name: 'Metro' },
+    { id: 'm2', name: 'Metro Quadrado' },
+    { id: 'm3', name: 'Metro Cubico' }
   ],
   servicesUnity: [
-    { id: 'un', name: 'Valor Base', disabled: false },
-    { id: 'h', name: 'Hora', disabled: false },
-    { id: 'd', name: 'Dia', disabled: false },
-    { id: 'm', name: 'Metro', disabled: false },
-    { id: 'm2', name: 'Metro Quadrado', disabled: false },
-    { id: 'm3', name: 'Metro Cubico', disabled: false },
+    { id: 'un', name: 'Valor Base' },
+    { id: 'h', name: 'Hora' },
+    { id: 'd', name: 'Dia' },
+    { id: 'm', name: 'Metro' },
+    { id: 'm2', name: 'Metro Quadrado' },
+    { id: 'm3', name: 'Metro Cubico' }
   ],
   paymentMethods: [
-    { id: 'Dinheiro', name: 'Dinheiro', disabled: false },
-    { id: 'Débito', name: 'Cartão de Débito', disabled: false },
-    { id: 'Crédito', name: 'Cartão de Crédito', disabled: false },
-    { id: 'Pix', name: 'Pix', disabled: false },
-    { id: 'Cheque', name: 'Cheque', disabled: false },
-    { id: 'Boleto', name: 'Boleto', disabled: true },
-    { id: 'Transferência', name: 'Transferência Bancária', disabled: true },
-    { id: 'Fiado', name: 'Fiado', disabled: false },
-    { id: 'Outro', name: 'Outro', disabled: false },
-  ],
+    { id: 'Dinheiro', name: 'Dinheiro', inactive: false },
+    { id: 'Debito', name: 'Cartão de Débito', inactive: false },
+    { id: 'Credito', name: 'Cartão de Crédito', inactive: false },
+    { id: 'Pix', name: 'Pix', inactive: false },
+    { id: 'Cheque', name: 'Cheque', inactive: false },
+    { id: 'Boleto', name: 'Boleto', inactive: true },
+    { id: 'Transferencia', name: 'Transferência Bancária', inactive: true },
+    { id: 'Fiado', name: 'Fiado', inactive: false },
+    { id: 'Outro', name: 'Outro', inactive: false }
+  ]
 })
-

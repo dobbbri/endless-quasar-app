@@ -1,3 +1,13 @@
+
+import { updateDoc, serverTimestamp } from "firebase/firestore";
+
+const docRef = doc(db, 'objects', 'some-id');
+
+// Update the timestamp field with the value from the server
+const updateTimestamp = await updateDoc(docRef, {
+    timestamp: serverTimestamp()
+});
+
 With Firebase Version 9 (Dec, 2021 Update):
 
 You must make a document reference with "categories/5gF5FqRPvdroRF8isOwdand" then use it in your query:

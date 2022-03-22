@@ -6,13 +6,9 @@ import { useGetCollection } from '@/composables'
 export default function useGetCategoriesForSelect() {
   const auth = getAuth()
 
-  const colRef = query(
-    collection(db, 'categories'),
-    where('userId', '==', auth.currentUser.uid),
-    orderBy('name')
-  )
+  const colRef = query(collection(db, 'categories'), where('userId', '==', auth.currentUser.uid), orderBy('name'))
 
-  const { documents: categories } = useGetCollection(colRef, true)
+  const { documents: categories } = useGetCollection(colRef, 'categories/')
 
   return { categories }
 }

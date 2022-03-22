@@ -5,9 +5,9 @@
 
 // https://quasar.dev/style/sass-scss-variables
 
-$primary: #008cff !default;
-$secondary: #26a69a !default;
-$accent: #ff7300 !default;
+$primary: #00a6ff !default;
+$secondary: #96abb5 !default;
+$accent: #9770e7 !default;
 
 $dark: #243238 !default;
 
@@ -22,6 +22,4 @@ $tooltip-fontsize: 14px !default;
 $tooltip-background: #000000 !default;
 $tooltip-padding: 4px 12px !default;
 $tooltip-mobile-padding: 4px 12px !default;
-$option-focus-transition: 0s cubic-bezier(0,0,.2,0) !default
-
-
+$option-focus-transition: 0s cubic-bezier(0, 0, 0.2, 0) !default;

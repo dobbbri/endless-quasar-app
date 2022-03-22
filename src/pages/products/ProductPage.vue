@@ -5,6 +5,8 @@ const { rules, error, loading, addProduct, editProduct, deleteProduct } = usePro
 
 const { ADD, EDIT } = inject('constants')
 const store = inject('store')
+console.log(store.product)
+
 const { salesUnit } = inject('dbStore')
 
 const route = useRoute()
