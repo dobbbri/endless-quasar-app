@@ -9,7 +9,7 @@ export const dbStore = reactive({
   paymentMethods: [],
   product: {},
   products: [],
-  salesUnit: [],
+  salesUnity: [],
   service: {},
   services: [],
   servicesUnity: [],
@@ -33,7 +33,7 @@ export const dbStore = reactive({
       name: '',
       description: '',
       categoryRef: '',
-      saleUnityRef: 'salesUnity/un',
+      saleUnityRef: '',
       price: { toSell: 0, toBuy: 0 },
       stock: { isAutomatic: false, quantity: 0, minimum: 0 },
       code: { bar: '', internal: '' },
@@ -82,8 +82,8 @@ export const dbStore = reactive({
     this.documentTypes = values
   },
 
-  setSalesUnit(values) {
-    this.salesUnit = values
+  setSalesUnity(values) {
+    this.salesUnity = values
   },
 
   setServicesUnity(values) {
@@ -94,11 +94,18 @@ export const dbStore = reactive({
     this.paymentMethods = values
   },
 
+  setDocumentTypes(values) {
+    this.documentTypes = values
+  },
   documentTypes: [
     { id: 'CI', name: 'CI' },
     { id: 'CPF', name: 'CPF' },
     { id: 'CNPJ', name: 'CNPJ' }
   ],
+
+  setSalesUnit(values) {
+    this.salesUnit = values
+  },
   salesUnity: [
     { id: 'un', name: 'Unitário' },
     { id: 'kg', name: 'Kilograma' },
@@ -107,6 +114,10 @@ export const dbStore = reactive({
     { id: 'm2', name: 'Metro Quadrado' },
     { id: 'm3', name: 'Metro Cubico' }
   ],
+
+  setServicesUnit(values) {
+    this.servicesUnity = values
+  },
   servicesUnity: [
     { id: 'un', name: 'Valor Base' },
     { id: 'h', name: 'Hora' },
@@ -115,6 +126,10 @@ export const dbStore = reactive({
     { id: 'm2', name: 'Metro Quadrado' },
     { id: 'm3', name: 'Metro Cubico' }
   ],
+
+  setPaymentMethods(values) {
+    this.paymentMethods = values
+  },
   paymentMethods: [
     { id: 'Dinheiro', name: 'Dinheiro', inactive: false },
     { id: 'Debito', name: 'Cartão de Débito', inactive: false },

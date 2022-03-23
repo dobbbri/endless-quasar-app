@@ -1,16 +1,9 @@
 <script setup>
-import { useGetCategoriesForSelect } from '@/composables/category'
 import { useGetProducts } from '@/composables/product'
 
 const { ADD, EDIT } = inject('constants')
 const store = inject('dbStore')
-
-const { categories } = useGetCategoriesForSelect()
-store.setCategories(categories)
-
 const { searchQuery, loading, products } = useGetProducts()
-console.log(products)
-
 const router = useRouter()
 
 const showAddPage = () => {
@@ -19,8 +12,8 @@ const showAddPage = () => {
 }
 
 const showUpdatePage = async (doc) => {
-  console.log(doc)
-  store.setProduct(doc)
+  let { ref, ...product } = doc
+  store.setProduct(product)
   router.push({ name: 'product', params: { action: EDIT } })
 }
 </script>
@@ -45,15 +38,17 @@ const showUpdatePage = async (doc) => {
 
         <list separator>
           <item v-for="(product, index) in products" :key="index" @click="showUpdatePage(product)">
-            <item-section>
-              <item-section-label class="row text-subtitle1 text-weight-medium">
+            <item-section text-color="secondary">
+              <item-section-label class="row text-subtitle2 text-weight-medium">
                 {{ product.name }}
               </item-section-label>
               <item-section-label class="row text-body2" style="height: 16px">
                 <span class="col">
-                  <chip>{{ product.category.name }}</chip>
+                  <chip>{{ product.ref.category.name }}</chip>
                 </span>
-                <span v-if="product.stock.isAutomatic" class="col">{{ product.stock.quantity }} {{product.saleUnity.name}}</span>
+                <span v-if="product.stock.isAutomatic" class="col">
+                  {{ product.stock.quantity }} {{ product.ref.saleUnity.name }}
+                </span>
                 <span class="col text-right">R$ {{ product.price.toSell }}</span>
               </item-section-label>
             </item-section>

@@ -8,15 +8,15 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@quasar/extras": "^1.13.1",
+    "@quasar/extras": "^1.13.3",
     "firebase": "^9.6.7",
-    "quasar": "^2.5.5",
+    "quasar": "^2.6.1",
     "vue": "^3.2.31",
     "vue-currency-input": "^2.4.0",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {
-    "@quasar/vite-plugin": "^1.0.5",
+    "@quasar/vite-plugin": "^1.0.7",
     "@rushstack/eslint-patch": "^1.1.0",
     "@vitejs/plugin-vue": "^2.2.2",
     "@vue/eslint-config-prettier": "^7.0.0",

@@ -2,10 +2,8 @@
 import { useCategory } from '@/composables/category'
 
 const { rules, error, loading, addCategory, editCategory, deleteCategory } = useCategory()
-
 const { ADD, EDIT } = inject('constants')
 const store = inject('dbStore')
-
 const route = useRoute()
 const router = useRouter()
 
@@ -46,7 +44,7 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
       </page-header>
 
       <page-body>
-        <expansion-box icon="explorer" label="Campos obrigatórios" :expanded="true">
+        <expansion-box label="Campos obrigatórios" :expanded="true">
           <text-field
             v-model="store.category.name"
             label="Nome"
@@ -56,7 +54,7 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
           />
         </expansion-box>
 
-         <expansion-box :expanded="true" :no-header="true">
+        <expansion-box :expanded="true" :no-header="true">
           <check-box v-model="store.category.inactive" label="Ocultar esta categoria" />
         </expansion-box>
 

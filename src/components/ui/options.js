@@ -1,5 +1,5 @@
 const defaults = {
-  box: { dense: false, class: 'bg-white q-mt-md overflow-hidden ', style: 'border-radius: 12px' },
+  box: { dense: false, class: 'bg-white q-mb-md overflow-hidden ', style: 'border-radius: 12px' },
   btn: { rounded: true, ripple: true, noCaps: true },
   chip: { dense: true },
   icon: { size: 'md', dense: true },
@@ -9,7 +9,7 @@ const defaults = {
 const options = {
   btns: {
     basic: { color: 'primary', unelevated: true, ...defaults.btn },
-    form: { outline: true, class: 'bg-white', textColor: 'primary', ...defaults.btn },
+    form: { flat: true, class: 'text-weight-bold', textColor: 'primary', ...defaults.btn },
     icon: { flat: true, color: 'primary', size: 'md', dense: true, ...defaults.btn }
   },
 

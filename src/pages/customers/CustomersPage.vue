@@ -2,10 +2,8 @@
 import { useGetCustomers } from '@/composables/customer'
 
 const { searchQuery, loading, customers } = useGetCustomers()
-
 const { ADD, EDIT } = inject('constants')
 const store = inject('store')
-
 const router = useRouter()
 
 const showAddPage = () => {
@@ -35,25 +33,16 @@ const showUpdatePage = async (doc) => {
       <expansion-box :expanded="true" :no-header="true">
         <search-field v-model="searchQuery" />
 
-        <q-inner-loading
-          :showing="loading"
-          color="primary"
-          label="obtendo registros..."
-          label-class="text-grey-6"
-        />
+        <q-inner-loading :showing="loading" color="primary" label="obtendo registros..." label-class="text-grey-6" />
 
         <list separator>
-          <item
-            v-for="(customer, index) in customers"
-            :key="index"
-            @click="showUpdatePage(customer)"
-          >
+          <item v-for="(customer, index) in customers" :key="index" @click="showUpdatePage(customer)">
             <item-section class="column">
               <item-section-label class="text-bold">{{ customer.name }}</item-section-label>
 
-              <item-section-label
-                v-if="customer.document.number"
-              >{{ customer.document.typeId }}: {{ customer.document.number }}</item-section-label>
+              <item-section-label v-if="customer.document.number">
+                {{ customer.document.typeId }}: {{ customer.document.number }}
+              </item-section-label>
             </item-section>
 
             <item-section class="column text-right">

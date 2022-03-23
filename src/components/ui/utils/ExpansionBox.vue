@@ -13,7 +13,6 @@ defineProps({
   <q-expansion-item
     v-bind="opts.utils.box"
     :icon="icon"
-    icon-class="q-ml-md"
     :label="label"
     :header-class="{ 'text-weight-medium': !noHeader, hidden: noHeader }"
     :default-opened="expanded"

@@ -2,11 +2,9 @@
 import { useCustomer } from '@/composables/customer'
 
 const { rules, error, loading, addCustomer, editCustomer, deleteCustomer } = useCustomer()
-
 const { ADD, EDIT } = inject('constants')
 const store = inject('store')
 const { documentTypes } = inject('dbStore')
-
 const route = useRoute()
 const router = useRouter()
 
@@ -70,12 +68,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             title="Informe o número do telefone fixo do cliente"
           />
 
-          <text-field
-            v-model.trim="store.customer.email"
-            type="email"
-            label="Email"
-            title="Email do cliente"
-          />
+          <text-field v-model.trim="store.customer.email" type="email" label="Email" title="Email do cliente" />
         </expansion-box>
 
         <expansion-box label="Avançado" :expanded="false">
@@ -92,11 +85,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             title="Informe o número do documento"
           />
 
-          <text-area
-            v-model="store.customer.comments"
-            label="Observações"
-            title="Adicione as observações do cliente"
-          />
+          <text-area v-model="store.customer.comments" label="Observações" title="Adicione as observações do cliente" />
         </expansion-box>
 
         <page-footer>

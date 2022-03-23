@@ -2,7 +2,7 @@ import { onSnapshot, getDoc } from 'firebase/firestore'
 import { useNotification } from '@/composables'
 const { notify } = useNotification()
 
-export default function useCollection(colRef, referencePath = null) {
+export default function useCollection(colRef, collectionName = null) {
   const documents = ref(null)
   const loading = ref(true)
 
@@ -10,32 +10,35 @@ export default function useCollection(colRef, referencePath = null) {
     colRef,
     (snapshot) => {
       let results = []
-      if (referencePath) {
+      if (collectionName) {
         snapshot.docs.forEach((doc) => {
-          results.push({ id: referencePath + doc.id, name: doc.data().name })
+          results.push({ id: doc.id, name: doc.data().name })
         })
       } else {
         snapshot.docs.forEach(async (doc) => {
-          let data = { ...doc.data(), id: doc.id }
+          let data = { ...doc.data(), id: doc.id, ref: {} }
           if (data.categoryRef) {
             const categorySnap = await getDoc(data.categoryRef)
             if (categorySnap.exists()) {
-              data['category'] = { name: categorySnap.data().name }
+              data.ref['category'] = { name: categorySnap.data().name }
             }
-          } else if (data.saleUnityRef) {
+          }
+          if (data.saleUnityRef) {
             const saleUnitySnap = await getDoc(data.saleUnityRef)
             if (saleUnitySnap.exists()) {
-              data['saleUnity'] = { name: saleUnitySnap.data().name }
+              data.ref['saleUnity'] = { name: saleUnitySnap.data().name }
             }
-          } else if (data.serviceUnityRef) {
+          }
+          if (data.serviceUnityRef) {
             const serviceUnitySnap = await getDoc(data.serviceUnityRef)
             if (serviceUnitySnap.exists()) {
-              data['serviceUnity'] = { name: serviceUnitySnap.data().name }
+              data.ref['serviceUnity'] = { name: serviceUnitySnap.data().name }
             }
-          } else if (data.documentTypeRef) {
+          }
+          if (data.documentTypeRef) {
             const documentTypeSnap = await getDoc(data.documentTypeRef)
             if (documentTypeSnap.exists()) {
-              data['documentType'] = { name: documentTypeSnap.data().name }
+              data.ref['documentType'] = { name: documentTypeSnap.data().name }
             }
           }
           results.push(data)

@@ -1,3 +1,17 @@
+<script setup>
+import { useGetCollectionForSelect } from '@/composables'
+
+const store = inject('dbStore')
+
+const { documents: categories } = useGetCollectionForSelect('categories')
+store.setCategories(categories)
+console.log('categories -> ', categories)
+
+const { documents: salesUnity } = useGetCollectionForSelect('salesUnity')
+store.setSalesUnity(salesUnity)
+console.log('salesUnity -> ', salesUnity)
+</script>
+
 <template>
   <page>
     <page-header>
