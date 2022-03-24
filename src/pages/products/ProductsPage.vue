@@ -13,6 +13,9 @@ const showAddPage = () => {
 
 const showUpdatePage = async (doc) => {
   let { ref, ...product } = doc
+  product.categoryRef = product.categoryRef.path.split('/')[1]
+  product.saleUnityRef = product.saleUnityRef.path.split('/')[1]
+  console.log('product -> ', product)
   store.setProduct(product)
   router.push({ name: 'product', params: { action: EDIT } })
 }

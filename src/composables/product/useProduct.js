@@ -15,6 +15,8 @@ export default function useUpdateProduct() {
     loading.value = true
     error.value = false
     product.userId = auth.currentUser.uid
+    product.categoryRef = doc(db, 'categories', product.categoryRef)
+    product.saleUnityRef = doc(db, 'salesUnity', product.saleUnityRef)
 
     if (file) {
       await uploadImage(file)
@@ -33,6 +35,8 @@ export default function useUpdateProduct() {
   const editProduct = async (product, file, id) => {
     loading.value = true
     error.value = false
+    product.categoryRef = doc(db, 'categories', product.categoryRef)
+    product.saleUnityRef = doc(db, 'salesUnity', product.saleUnityRef)
 
     if (file) {
       await uploadImage(file)
