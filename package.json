@@ -5,6 +5,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --port 5050",
+    "format": "prettier .  --write",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -22,7 +23,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^8.2.0",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "sass": "^1.32.0",
     "typescript": "^4.5.5",
     "unplugin-auto-import": "^0.5.11",

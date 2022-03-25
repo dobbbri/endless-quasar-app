@@ -4,7 +4,6 @@ import { useProduct } from '@/composables/product'
 const { rules, error, loading, addProduct, editProduct, deleteProduct } = useProduct()
 const { ADD, EDIT } = inject('constants')
 const store = inject('dbStore')
-console.log(store.product)
 const route = useRoute()
 const router = useRouter()
 
@@ -47,7 +46,10 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
       </page-header>
 
       <page-body>
-        <expansion-box label="Campos obrigatórios" :expanded="true">
+        <expansion-box
+          label="Campos obrigatórios"
+          :expanded="true"
+        >
           <text-field
             v-model="store.product.name"
             label="Nome"
@@ -105,7 +107,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
         <expansion-box label="Avançado">
           <!-- -- -->
           <select-field
-            v-model="store.product.saleUnityRef"
+            v-model="store.product.saleUnityId"
             label="Unidade de venda"
             :options="store.salesUnity"
             title="Selecione a unidade de venda do produto"
@@ -129,18 +131,33 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             title="Informe o código de barra do produto"
           />
 
-          <text-area v-model="store.product.description" label="Descrição" title="Informe a descrição do produto" />
+          <text-area
+            v-model="store.product.description"
+            label="Descrição"
+            title="Informe a descrição do produto"
+          />
         </expansion-box>
 
         <expansion-box label="Foto">
-          <file-picker label v-model:file="store.product.file" :url="store.product.image.url" />
+          <file-picker
+            label
+            v-model:file="store.product.file"
+            :url="store.product.image.url"
+          />
         </expansion-box>
 
         <page-footer>
           <div class="row q-ma-md">
-            <btn-cancel :loading="loading" class="col" />
+            <btn-cancel
+              :loading="loading"
+              class="col"
+            />
             <q-space class="q-ml-md" />
-            <btn-save type="submit" :loading="loading" class="col" />
+            <btn-save
+              type="submit"
+              :loading="loading"
+              class="col"
+            />
           </div>
         </page-footer>
       </page-body>

@@ -4,5 +4,9 @@ import useGoBack from '@/composables/useGoBack'
 </script>
 
 <template>
-  <q-btn v-bind="opts.btns.icon" icon="chevron_left" @click="useGoBack" />
+  <q-btn
+    v-bind="opts.btns.icon"
+    icon="chevron_left"
+    @click="useGoBack"
+  />
 </template>

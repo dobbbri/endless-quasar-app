@@ -21,7 +21,10 @@ const selectOne = (index, category) => {
 </script>
 
 <template>
-  <div class="q-py-sm q-px-xs hide-scrollbar" style="height: 56px">
+  <div
+    class="q-py-sm q-px-xs hide-scrollbar"
+    style="height: 56px"
+  >
     <q-btn
       rounded
       label="todas"
@@ -50,7 +53,10 @@ const selectOne = (index, category) => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
 div {
   overflow: auto;
   white-space: nowrap;

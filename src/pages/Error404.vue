@@ -3,9 +3,22 @@
     <div>
       <div style="font-size: 30vh">404</div>
 
-      <div class="text-h2" style="opacity: 0.4">Oops. Nada aqui...</div>
+      <div
+        class="text-h2"
+        style="opacity: 0.4"
+      >
+        Oops. Nada aqui...
+      </div>
 
-      <q-btn class="q-mt-xl" color="white" text-color="dark" unelevated to="/" label="Ir para o início" no-caps />
+      <q-btn
+        class="q-mt-xl"
+        color="white"
+        text-color="dark"
+        unelevated
+        to="/"
+        label="Ir para o início"
+        no-caps
+      />
     </div>
   </div>
 </template>

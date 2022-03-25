@@ -7,5 +7,10 @@ defineProps({
 </script>
 
 <template>
-  <q-btn type="button" v-bind="opts.btns.basic" :loading="loading" :disable="loading" />
+  <q-btn
+    type="button"
+    v-bind="opts.btns.basic"
+    :loading="loading"
+    :disable="loading"
+  />
 </template>

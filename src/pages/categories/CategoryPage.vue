@@ -44,7 +44,10 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
       </page-header>
 
       <page-body>
-        <expansion-box label="Campos obrigatórios" :expanded="true">
+        <expansion-box
+          label="Campos obrigatórios"
+          :expanded="true"
+        >
           <text-field
             v-model="store.category.name"
             label="Nome"
@@ -54,15 +57,28 @@ const action = computed(() => (route.params.action === ADD ? 'Nova' : ''))
           />
         </expansion-box>
 
-        <expansion-box :expanded="true" :no-header="true">
-          <check-box v-model="store.category.inactive" label="Ocultar esta categoria" />
+        <expansion-box
+          :expanded="true"
+          :no-header="true"
+        >
+          <check-box
+            v-model="store.category.inactive"
+            label="Ocultar esta categoria"
+          />
         </expansion-box>
 
         <page-footer>
           <div class="row q-ma-md">
-            <btn-cancel :loading="loading" class="col" />
+            <btn-cancel
+              :loading="loading"
+              class="col"
+            />
             <q-space class="q-ml-md" />
-            <btn-save type="submit" :loading="loading" class="col" />
+            <btn-save
+              type="submit"
+              :loading="loading"
+              class="col"
+            />
           </div>
         </page-footer>
       </page-body>

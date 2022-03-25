@@ -5,5 +5,9 @@ const store = inject('store')
 </script>
 
 <template>
-  <q-btn v-bind="opts.btns.icon" icon="menu" @click="store.setIsOpenSidebar(true)" />
+  <q-btn
+    v-bind="opts.btns.icon"
+    icon="menu"
+    @click="store.setIsOpenSidebar(true)"
+  />
 </template>

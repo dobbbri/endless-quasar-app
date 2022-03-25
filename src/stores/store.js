@@ -5,8 +5,13 @@ export const store = reactive({
   iosBrowserSwipingBack: false,
 
   // actions
-  setIsOpenSidebar(value) { this.isSidebarOpen = value },
-  setUsePageTransition(value) { this.usePageTransition = value },
-  setIosBrowserSwipingBack(value) { this.iosBrowserSwipingBack = value },
+  setIsOpenSidebar(value) {
+    this.isSidebarOpen = value
+  },
+  setUsePageTransition(value) {
+    this.usePageTransition = value
+  },
+  setIosBrowserSwipingBack(value) {
+    this.iosBrowserSwipingBack = value
+  }
 })
-

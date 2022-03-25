@@ -2,7 +2,7 @@ import { onSnapshot, getDoc } from 'firebase/firestore'
 import { useNotification } from '@/composables'
 const { notify } = useNotification()
 
-export default function useCollection(colRef, collectionName = null) {
+export default function useCollection(colRef, onlyIdAndName = false) {
   const documents = ref(null)
   const loading = ref(true)
 
@@ -10,7 +10,7 @@ export default function useCollection(colRef, collectionName = null) {
     colRef,
     (snapshot) => {
       let results = []
-      if (collectionName) {
+      if (onlyIdAndName) {
         snapshot.docs.forEach((doc) => {
           results.push({ id: doc.id, name: doc.data().name })
         })
@@ -23,31 +23,13 @@ export default function useCollection(colRef, collectionName = null) {
               data.ref['category'] = { name: categorySnap.data().name }
             }
           }
-          if (data.saleUnityRef) {
-            const saleUnitySnap = await getDoc(data.saleUnityRef)
-            if (saleUnitySnap.exists()) {
-              data.ref['saleUnity'] = { name: saleUnitySnap.data().name }
-            }
-          }
-          if (data.serviceUnityRef) {
-            const serviceUnitySnap = await getDoc(data.serviceUnityRef)
-            if (serviceUnitySnap.exists()) {
-              data.ref['serviceUnity'] = { name: serviceUnitySnap.data().name }
-            }
-          }
-          if (data.documentTypeRef) {
-            const documentTypeSnap = await getDoc(data.documentTypeRef)
-            if (documentTypeSnap.exists()) {
-              data.ref['documentType'] = { name: documentTypeSnap.data().name }
-            }
-          }
           results.push(data)
         })
       }
       documents.value = results
     },
     (err) => {
-      notify.error('Erro ao obter as categorias', err)
+      notify.error('Erro ao obter dados da coleção', err)
     }
   )
 

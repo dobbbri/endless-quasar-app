@@ -8,5 +8,9 @@ defineProps({
 </script>
 
 <template>
-  <q-icon v-bind="opts.utils.icon" :name="name" :size="size" />
+  <q-icon
+    v-bind="opts.utils.icon"
+    :name="name"
+    :size="size"
+  />
 </template>

@@ -5,7 +5,12 @@
 </script>
 
 <template>
-  <q-tabs active-color="primary" indicator-color="transparent" class="text-grey" no-caps>
+  <q-tabs
+    active-color="primary"
+    indicator-color="transparent"
+    class="text-grey"
+    no-caps
+  >
     <q-route-tab />
     <!-- v-for="navItem in store.state.navItems" -->
     <!-- :key="navItem.root" -->

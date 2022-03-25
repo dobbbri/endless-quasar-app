@@ -5,7 +5,7 @@ defineProps({
   label: { type: String, default: '' },
   icon: { type: String, default: '' },
   expanded: { type: Boolean, default: false },
-  noHeader: { type: Boolean, default: false },
+  noHeader: { type: Boolean, default: false }
 })
 </script>
 
@@ -25,4 +25,3 @@ defineProps({
     </q-card>
   </q-expansion-item>
 </template>
-

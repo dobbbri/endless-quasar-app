@@ -4,5 +4,9 @@ import useGoBack from '@/composables/useGoBack'
 </script>
 
 <template>
-  <q-btn v-bind="opts.btns.form" label="CANCELAR" @click="useGoBack" />
+  <q-btn
+    v-bind="opts.btns.form"
+    label="CANCELAR"
+    @click="useGoBack"
+  />
 </template>

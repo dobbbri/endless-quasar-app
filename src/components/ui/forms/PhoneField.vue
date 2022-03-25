@@ -9,5 +9,10 @@ const setMask = (e) => {
 </script>
 
 <template>
-  <q-input v-bind="opts.forms.input" type="tel" :mask="mask" @keyup="setMask" />
+  <q-input
+    v-bind="opts.forms.input"
+    type="tel"
+    :mask="mask"
+    @keyup="setMask"
+  />
 </template>

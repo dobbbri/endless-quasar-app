@@ -60,11 +60,17 @@ onMounted(() => userSignOut())
     </page-header>
 
     <page-body class="bg-white">
-      <q-avatar size="120px" class="bg-white q-mt-xl q-mx-auto full-width">
+      <q-avatar
+        size="120px"
+        class="bg-white q-mt-xl q-mx-auto full-width"
+      >
         <img src="/src/assets/images/logo.svg" />
       </q-avatar>
 
-      <expansion-box :expanded="true" :no-header="true">
+      <expansion-box
+        :expanded="true"
+        :no-header="true"
+      >
         <q-form @submit="onSubmit">
           <!-- email -->
           <text-field
@@ -93,9 +99,16 @@ onMounted(() => userSignOut())
           />
 
           <!-- Use Term -->
-          <div v-if="!isSignIn" class="q-py-md text-body2 text-center text-weight-medium text-blue-grey-5">
+          <div
+            v-if="!isSignIn"
+            class="q-py-md text-body2 text-center text-weight-medium text-blue-grey-5"
+          >
             Ao pressionar o botão criar conta você afirma que leu e que concorda com os nossos&nbsp;
-            <router-link class="text-primary text-no-wrap" to="/terms">Termo de Uso</router-link>
+            <router-link
+              class="text-primary text-no-wrap"
+              to="/terms"
+              >Termo de Uso</router-link
+            >
           </div>
 
           <!-- submit -->
@@ -116,13 +129,23 @@ onMounted(() => userSignOut())
             <div v-if="isSignIn">
               Não tem uma conta:
               <br />
-              <q-btn flat label="Crie sua Conta" class="text-primary" @click="toggle" />
+              <q-btn
+                flat
+                label="Crie sua Conta"
+                class="text-primary"
+                @click="toggle"
+              />
             </div>
 
             <div v-else>
               Já tem uma conta:
               <br />
-              <q-btn flat label="Faça seu Login" class="text-primary" @click="toggle" />
+              <q-btn
+                flat
+                label="Faça seu Login"
+                class="text-primary"
+                @click="toggle"
+              />
             </div>
           </div>
           <!-- -- -->

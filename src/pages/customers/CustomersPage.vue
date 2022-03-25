@@ -3,7 +3,7 @@ import { useGetCustomers } from '@/composables/customer'
 
 const { searchQuery, loading, customers } = useGetCustomers()
 const { ADD, EDIT } = inject('constants')
-const store = inject('store')
+const store = inject('dbStore')
 const router = useRouter()
 
 const showAddPage = () => {
@@ -30,13 +30,25 @@ const showUpdatePage = async (doc) => {
     </page-header>
 
     <page-body>
-      <expansion-box :expanded="true" :no-header="true">
+      <expansion-box
+        :expanded="true"
+        :no-header="true"
+      >
         <search-field v-model="searchQuery" />
 
-        <q-inner-loading :showing="loading" color="primary" label="obtendo registros..." label-class="text-grey-6" />
+        <q-inner-loading
+          :showing="loading"
+          color="primary"
+          label="obtendo registros..."
+          label-class="text-grey-6"
+        />
 
         <list separator>
-          <item v-for="(customer, index) in customers" :key="index" @click="showUpdatePage(customer)">
+          <item
+            v-for="(customer, index) in customers"
+            :key="index"
+            @click="showUpdatePage(customer)"
+          >
             <item-section class="column">
               <item-section-label class="text-bold">{{ customer.name }}</item-section-label>
 

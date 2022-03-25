@@ -8,7 +8,8 @@ export default function useGetCollectionForSelect(collectionName) {
 
   const colRef = query(collection(db, collectionName), where('userId', '==', auth.currentUser.uid), orderBy('name'))
 
-  const { documents } = useGetCollection(colRef, collectionName)
+  const { documents } = useGetCollection(colRef, true)
+  console.log(' [DEBUG] documents : ', documents)
 
   return { documents }
 }

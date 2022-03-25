@@ -7,11 +7,7 @@ import { useNameSearch } from '@/composables'
 export default function useGetProducts() {
   const auth = getAuth()
 
-  const colRef = query(
-    collection(db, 'products'),
-    where('userId', '==', auth.currentUser.uid),
-    orderBy('name')
-  )
+  const colRef = query(collection(db, 'products'), where('userId', '==', auth.currentUser.uid), orderBy('name'))
 
   const { loading, documents } = useGetCollection(colRef)
 

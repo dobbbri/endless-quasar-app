@@ -33,7 +33,7 @@ export const dbStore = reactive({
       name: '',
       description: '',
       categoryRef: '',
-      saleUnityRef: '',
+      saleUnityId: 'un',
       price: { toSell: 0, toBuy: 0 },
       stock: { isAutomatic: false, quantity: 0, minimum: 0 },
       code: { bar: '', internal: '' },
@@ -94,18 +94,12 @@ export const dbStore = reactive({
     this.paymentMethods = values
   },
 
-  setDocumentTypes(values) {
-    this.documentTypes = values
-  },
   documentTypes: [
     { id: 'CI', name: 'CI' },
     { id: 'CPF', name: 'CPF' },
     { id: 'CNPJ', name: 'CNPJ' }
   ],
 
-  setSalesUnit(values) {
-    this.salesUnit = values
-  },
   salesUnity: [
     { id: 'un', name: 'Unitário' },
     { id: 'kg', name: 'Kilograma' },
@@ -115,9 +109,6 @@ export const dbStore = reactive({
     { id: 'm3', name: 'Metro Cubico' }
   ],
 
-  setServicesUnit(values) {
-    this.servicesUnity = values
-  },
   servicesUnity: [
     { id: 'un', name: 'Valor Base' },
     { id: 'h', name: 'Hora' },

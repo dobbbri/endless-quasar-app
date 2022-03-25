@@ -38,11 +38,8 @@ const routes = [
         path: '/products',
         meta: { requiresAuth: true },
         component: ProductsPage,
-        children: [
-          { path: '/products/product', name: 'product', meta: { requiresAuth: true }, component: ProductPage }
-        ]
+        children: [{ path: '/products/product', name: 'product', meta: { requiresAuth: true }, component: ProductPage }]
       }
-
     ]
   },
 

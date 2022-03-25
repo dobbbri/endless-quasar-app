@@ -24,18 +24,40 @@ const menuItems = ref([
 
 <template>
   <div>
-    <q-drawer v-model="store.isSidebarOpen" show-if-above side="left" behavior="mobile" bordered>
+    <q-drawer
+      v-model="store.isSidebarOpen"
+      show-if-above
+      side="left"
+      behavior="mobile"
+      bordered
+    >
       <list class="q-pt-sm border-bottom">
-        <item class="row" :clickable="false">
-          <item-section avatar class="q-pl-md">
-            <q-avatar size="lg" class="bg-white">
+        <item
+          class="row"
+          :clickable="false"
+        >
+          <item-section
+            avatar
+            class="q-pl-md"
+          >
+            <q-avatar
+              size="lg"
+              class="bg-white"
+            >
               <img src="/src/assets/images/logo.svg" />
             </q-avatar>
           </item-section>
         </item>
-        <item to="/profile" class="q-mx-md">
+        <item
+          to="/profile"
+          class="q-mx-md"
+        >
           <item-section>
-            <item-section-label class="text-weight-medium" to="/categories">Sergio Dobri</item-section-label>
+            <item-section-label
+              class="text-weight-medium"
+              to="/categories"
+              >Sergio Dobri</item-section-label
+            >
             <item-section-label caption>sergiodobri@gmail.com</item-section-label>
           </item-section>
           <q-space />
@@ -47,9 +69,20 @@ const menuItems = ref([
 
       <q-scroll-area style="height: calc(100% - 150px)">
         <list>
-          <item v-for="(item, index) in menuItems" :key="index" :to="item.route">
-            <item-section v-if="item.icon" avatar>
-              <icon :name="item.icon" size="md" class="q-pl-md" />
+          <item
+            v-for="(item, index) in menuItems"
+            :key="index"
+            :to="item.route"
+          >
+            <item-section
+              v-if="item.icon"
+              avatar
+            >
+              <icon
+                :name="item.icon"
+                size="md"
+                class="q-pl-md"
+              />
             </item-section>
             <item-section>
               <item-section-label class="text-weight-medium">{{ item.title }}</item-section-label>
@@ -57,7 +90,8 @@ const menuItems = ref([
                 v-if="item.caption"
                 caption
                 style="margin-top: -1px"
-              >{{ item.caption }}</item-section-label>
+                >{{ item.caption }}</item-section-label
+              >
             </item-section>
           </item>
         </list>

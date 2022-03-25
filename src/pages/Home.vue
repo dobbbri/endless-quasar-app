@@ -3,13 +3,10 @@ import { useGetCollectionForSelect } from '@/composables'
 
 const store = inject('dbStore')
 
-const { documents: categories } = useGetCollectionForSelect('categories')
-store.setCategories(categories)
-console.log('categories -> ', categories)
-
-const { documents: salesUnity } = useGetCollectionForSelect('salesUnity')
-store.setSalesUnity(salesUnity)
-console.log('salesUnity -> ', salesUnity)
+const { documents } = useGetCollectionForSelect('categories')
+store.setCategories(documents)
+console.log('categories -> ', store.categories)
+console.log('salesUnity -> ', store.salesUnity)
 </script>
 
 <template>

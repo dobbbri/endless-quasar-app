@@ -3,8 +3,7 @@ import { useCustomer } from '@/composables/customer'
 
 const { rules, error, loading, addCustomer, editCustomer, deleteCustomer } = useCustomer()
 const { ADD, EDIT } = inject('constants')
-const store = inject('store')
-const { documentTypes } = inject('dbStore')
+const store = inject('dbStore')
 const route = useRoute()
 const router = useRouter()
 
@@ -45,7 +44,10 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
       </page-header>
 
       <page-body>
-        <expansion-box label="Campos obrigatórios" :expanded="true">
+        <expansion-box
+          label="Campos obrigatórios"
+          :expanded="true"
+        >
           <text-field
             v-model="store.customer.name"
             label="Nome"
@@ -55,7 +57,10 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           />
         </expansion-box>
 
-        <expansion-box label="Contato" :expanded="true">
+        <expansion-box
+          label="Contato"
+          :expanded="true"
+        >
           <phone-field
             v-model="store.customer.phone.cell"
             label="Celular / Whatsapp"
@@ -68,14 +73,22 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             title="Informe o número do telefone fixo do cliente"
           />
 
-          <text-field v-model.trim="store.customer.email" type="email" label="Email" title="Email do cliente" />
+          <text-field
+            v-model.trim="store.customer.email"
+            type="email"
+            label="Email"
+            title="Email do cliente"
+          />
         </expansion-box>
 
-        <expansion-box label="Avançado" :expanded="false">
+        <expansion-box
+          label="Avançado"
+          :expanded="false"
+        >
           <select-field
             v-model="store.customer.document.typeId"
             label="Tipo de documento"
-            :options="documentTypes"
+            :options="store.documentTypes"
             title="Selecione o tipo de documento"
           />
 
@@ -85,14 +98,25 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             title="Informe o número do documento"
           />
 
-          <text-area v-model="store.customer.comments" label="Observações" title="Adicione as observações do cliente" />
+          <text-area
+            v-model="store.customer.comments"
+            label="Observações"
+            title="Adicione as observações do cliente"
+          />
         </expansion-box>
 
         <page-footer>
           <div class="row q-ma-md">
-            <btn-cancel :loading="loading" class="col" />
+            <btn-cancel
+              :loading="loading"
+              class="col"
+            />
             <q-space class="q-ml-md" />
-            <btn-save type="submit" :loading="loading" class="col" />
+            <btn-save
+              type="submit"
+              :loading="loading"
+              class="col"
+            />
           </div>
         </page-footer>
       </page-body>
