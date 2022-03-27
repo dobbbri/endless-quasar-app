@@ -7,7 +7,14 @@ const store = inject('dbStore')
 const router = useRouter()
 
 const showAddPage = () => {
-  store.setNewCustomer()
+  let doc = {
+    name: '',
+    phone: { cell: '', landline: '' },
+    document: { typeId: 'CPF', number: '' },
+    email: '',
+    comments: ''
+  }
+  store.setCustomer(doc)
   router.push({ name: 'customer', params: { action: ADD } })
 }
 

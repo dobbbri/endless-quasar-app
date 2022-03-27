@@ -7,7 +7,11 @@ const store = inject('dbStore')
 const router = useRouter()
 
 const showAddPage = () => {
-  store.setNewCategory()
+  let doc = {
+    name: '',
+    inactive: false
+  }
+  store.setCategory(doc)
   router.push({ name: 'category', params: { action: ADD } })
 }
 

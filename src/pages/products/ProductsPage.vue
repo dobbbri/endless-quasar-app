@@ -7,7 +7,19 @@ const { searchQuery, loading, products } = useGetProducts()
 const router = useRouter()
 
 const showAddPage = () => {
-  store.setNewProduct()
+  let doc = {
+    name: '',
+    description: '',
+    categoryRef: '',
+    saleUnityId: 'un',
+    price: { toSell: 0, toBuy: 0 },
+    stock: { isAutomatic: false, quantity: 0, minimum: 0 },
+    code: { bar: '', internal: '' },
+    image: { url: null, path: '' },
+    userId: '',
+    file: null
+  }
+  store.setProduct(doc)
   router.push({ name: 'product', params: { action: ADD } })
 }
 

@@ -28,20 +28,6 @@ export const dbStore = reactive({
     this.services = values
   },
 
-  setNewProduct() {
-    this.product = {
-      name: '',
-      description: '',
-      categoryRef: '',
-      saleUnityId: 'un',
-      price: { toSell: 0, toBuy: 0 },
-      stock: { isAutomatic: false, quantity: 0, minimum: 0 },
-      code: { bar: '', internal: '' },
-      image: { url: null, path: '' },
-      userId: '',
-      file: null
-    }
-  },
   setProduct(value) {
     this.product = value
   },
@@ -49,15 +35,6 @@ export const dbStore = reactive({
     this.products = values
   },
 
-  setNewCustomer() {
-    this.customer = {
-      name: '',
-      phone: { cell: '', landline: '' },
-      document: { typeId: 'CPF', number: '' },
-      email: '',
-      comments: ''
-    }
-  },
   setCustomer(value) {
     this.customer = value
   },
@@ -65,12 +42,6 @@ export const dbStore = reactive({
     this.customers = values
   },
 
-  setNewCategory() {
-    this.category = {
-      name: '',
-      inactive: false
-    }
-  },
   setCategory(value) {
     this.category = value
   },
@@ -118,9 +89,6 @@ export const dbStore = reactive({
     { id: 'm3', name: 'Metro Cubico' }
   ],
 
-  setPaymentMethods(values) {
-    this.paymentMethods = values
-  },
   paymentMethods: [
     { id: 'Dinheiro', name: 'Dinheiro', inactive: false },
     { id: 'Debito', name: 'Cartão de Débito', inactive: false },
