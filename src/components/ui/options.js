@@ -1,5 +1,5 @@
 const defaults = {
-  box: { dense: false, class: 'bg-white q-mb-md overflow-hidden ', style: 'border-radius: 12px' },
+  box: { dense: true, denseToggle: true, class: 'bg-white q-mb-md overflow-hidden ', style: 'border-radius: 12px' },
   btn: { rounded: true, ripple: true, noCaps: true },
   chip: { dense: true },
   icon: { size: 'md', dense: true },

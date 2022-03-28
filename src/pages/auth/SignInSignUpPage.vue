@@ -20,7 +20,7 @@ watch(
   () => isSignIn.value,
   () => {
     buttonTitle.value = isSignIn.value ? 'ENTRAR' : 'CRIAR CONTA'
-    pageTitle.value = isSignIn.value ? 'Faça seu Login' : 'Crie sua Conta'
+    pageTitle.value = isSignIn.value ? 'FAÇA SEU LOGIN' : 'CRIE SUA CONTA'
   }
 )
 
@@ -56,21 +56,27 @@ onMounted(() => userSignOut())
 <template>
   <page>
     <page-header>
-      <template #title>{{ pageTitle }}</template>
+      <template
+        class="float-left"
+        #title
+        >EndlesS</template
+      >
     </page-header>
 
-    <page-body class="bg-white">
-      <q-avatar
-        size="120px"
-        class="bg-white q-mt-xl q-mx-auto full-width"
-      >
-        <img src="/src/assets/images/logo.svg" />
-      </q-avatar>
-
+    <page-body>
       <expansion-box
+        :label="pageTitle"
         :expanded="true"
-        :no-header="true"
+        style="width: 98%"
+        class="q-ma-auto"
       >
+        <q-avatar
+          size="100px"
+          class="bg-white q-mt-xl q-mx-auto full-width"
+        >
+          <img src="/src/assets/images/logo.svg" />
+        </q-avatar>
+
         <q-form @submit="onSubmit">
           <!-- email -->
           <text-field

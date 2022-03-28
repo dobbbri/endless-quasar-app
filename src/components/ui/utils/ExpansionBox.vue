@@ -14,9 +14,10 @@ defineProps({
     v-bind="opts.utils.box"
     :icon="icon"
     :label="label"
-    :header-class="{ 'text-weight-medium': !noHeader, hidden: noHeader }"
+    :header-class="{ 'text-primary text-weight-medium': !noHeader, hidden: noHeader }"
     :default-opened="expanded"
-    class="border-top"
+    header-style="padding-left: 16px"
+    class="q-mx-xs"
   >
     <q-card>
       <q-card-section :class="{ 'q-py-md': noHeader }">
