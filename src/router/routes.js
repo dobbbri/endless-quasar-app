@@ -8,6 +8,7 @@ import CustomersPage from '@/pages/customers/CustomersPage.vue'
 import CustomerPage from '@/pages/customers/CustomerPage.vue'
 import ProductsPage from '@/pages/products/ProductsPage.vue'
 import ProductPage from '@/pages/products/ProductPage.vue'
+import ProductMovementPage from '@/pages/products/ProductMovementPage.vue'
 
 const routes = [
   {
@@ -23,7 +24,12 @@ const routes = [
         meta: { requiresAuth: true },
         component: CategoriesPage,
         children: [
-          { path: '/categories/category', name: 'category', meta: { requiresAuth: true }, component: CategoryPage }
+          {
+            path: '/categories/category',
+            name: 'category',
+            meta: { requiresAuth: true },
+            component: CategoryPage
+          }
         ]
       },
       {
@@ -31,14 +37,34 @@ const routes = [
         meta: { requiresAuth: true },
         component: CustomersPage,
         children: [
-          { path: '/customers/customer', name: 'customer', meta: { requiresAuth: true }, component: CustomerPage }
+          {
+            path: '/customers/customer',
+            name: 'customer',
+            meta: { requiresAuth: true },
+            component: CustomerPage
+          }
         ]
       },
       {
         path: '/products',
         meta: { requiresAuth: true },
         component: ProductsPage,
-        children: [{ path: '/products/product', name: 'product', meta: { requiresAuth: true }, component: ProductPage }]
+        children: [
+          {
+            path: '/products/product',
+            name: 'product',
+            meta: { requiresAuth: true },
+            component: ProductPage,
+            children: [
+              {
+                path: '/products/movement',
+                name: 'ProductMovement',
+                meta: { requiresAuth: true },
+                component: ProductMovementPage
+              }
+            ]
+          }
+        ]
       }
     ]
   },

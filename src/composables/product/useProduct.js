@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth'
 import { db } from '@/firebase/config'
 import { useValidation, useNotification, useStorage } from '@/composables'
 
-export default function useUpdateProduct() {
+export default function useProduct() {
   const auth = getAuth()
   const error = ref(false)
   const loading = ref(false)

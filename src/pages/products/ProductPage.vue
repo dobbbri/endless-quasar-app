@@ -66,6 +66,13 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             :rules="[rules.isRequired()]"
           />
 
+          <money-field
+            v-model="store.product.price.toBuy"
+            label="Valor de compra"
+            title="Informe o valor de compra do produto"
+            :rules="[rules.isRequired()]"
+          />
+
           <select-field
             v-model="store.product.categoryRef"
             label="Categoria"
@@ -75,7 +82,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           />
         </expansion-box>
 
-        <expansion-box label="Gerenciar estoque">
+        <expansion-box label="Estoque">
           <!--     -- -->
           <!-- gerenciar estoque > -->
           <!--   estoque automático (sim/nao) -->
@@ -112,12 +119,6 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
             label="Unidade de venda"
             :options="salesUnity"
             title="Selecione a unidade de venda do produto"
-          />
-
-          <money-field
-            v-model="store.product.price.toBuy"
-            label="Valor de compra"
-            title="Informe o valor de compra do produto"
           />
 
           <text-field
