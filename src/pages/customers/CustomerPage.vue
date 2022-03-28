@@ -3,7 +3,8 @@ import { useCustomer } from '@/composables/customer'
 
 const { rules, error, loading, addCustomer, editCustomer, deleteCustomer } = useCustomer()
 const { ADD, EDIT } = inject('constants')
-const store = inject('dbStore')
+const { documentTypes } = inject('dbStore')
+const store = inject('Store')
 const route = useRoute()
 const router = useRouter()
 
@@ -88,7 +89,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <select-field
             v-model="store.customer.document.typeId"
             label="Tipo de documento"
-            :options="store.documentTypes"
+            :options="documentTypes"
             title="Selecione o tipo de documento"
           />
 

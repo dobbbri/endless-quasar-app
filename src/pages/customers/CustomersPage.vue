@@ -3,7 +3,7 @@ import { useGetCustomers } from '@/composables/customer'
 
 const { searchQuery, loading, customers } = useGetCustomers()
 const { ADD, EDIT } = inject('constants')
-const store = inject('dbStore')
+const store = inject('store')
 const router = useRouter()
 
 const showAddPage = () => {

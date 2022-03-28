@@ -3,7 +3,7 @@ import { useGetCategories } from '@/composables/category'
 
 const { searchQuery, loading, categories } = useGetCategories()
 const { ADD, EDIT } = inject('constants')
-const store = inject('dbStore')
+const store = inject('store')
 const router = useRouter()
 
 const showAddPage = () => {

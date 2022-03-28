@@ -3,7 +3,7 @@ import { useCategory } from '@/composables/category'
 
 const { rules, error, loading, addCategory, editCategory, deleteCategory } = useCategory()
 const { ADD, EDIT } = inject('constants')
-const store = inject('dbStore')
+const store = inject('store')
 const route = useRoute()
 const router = useRouter()
 

@@ -3,7 +3,8 @@ import { useProduct } from '@/composables/product'
 
 const { rules, error, loading, addProduct, editProduct, deleteProduct } = useProduct()
 const { ADD, EDIT } = inject('constants')
-const store = inject('dbStore')
+const { categories, salesUnity } = inject('dbStore')
+const store = inject('store')
 const route = useRoute()
 const router = useRouter()
 
@@ -68,7 +69,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <select-field
             v-model="store.product.categoryRef"
             label="Categoria"
-            :options="store.categories"
+            :options="categories"
             title="Selecione a categoria do produto"
             :rules="[rules.isRequired()]"
           />
@@ -109,7 +110,7 @@ const action = computed(() => (route.params.action === ADD ? 'Novo' : ''))
           <select-field
             v-model="store.product.saleUnityId"
             label="Unidade de venda"
-            :options="store.salesUnity"
+            :options="salesUnity"
             title="Selecione a unidade de venda do produto"
           />
 

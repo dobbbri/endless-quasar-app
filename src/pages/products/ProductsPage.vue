@@ -1,9 +1,9 @@
 <script setup>
 import { useGetProducts } from '@/composables/product'
 
-const { ADD, EDIT } = inject('constants')
-const store = inject('dbStore')
 const { searchQuery, loading, products } = useGetProducts()
+const { ADD, EDIT } = inject('constants')
+const store = inject('store')
 const router = useRouter()
 
 const showAddPage = () => {
